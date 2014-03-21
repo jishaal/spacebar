@@ -1,0 +1,9 @@
+@import "compass/layout.scss";
+
+$sticky-height: 100px;
+ 
+@include sticky-footer($sticky-height, ".page-wrap", ".layout-footer", ".footer");
+
+.footer{
+	background: $primary;
+}

@@ -1,0 +1,509 @@
+body {
+    background: $bg;
+    text-rendering: optimizeLegibility;
+}
+
+html, body {
+    //overflow-x: hidden;
+    min-width: 300px;
+}
+
+.page-wrap {
+    @include rem('padding-top', 6rem);
+    @include rem('margin-bottom', 6rem);
+}
+
+
+/* ==========================================================================
+   Homepage
+   ========================================================================== */
+
+.home-intro{
+   @include rem('margin-bottom', 5.5rem);
+    h1{
+        @include bebus-light;
+        @include rem('font-size', 5.8rem );
+        @include rem('margin-bottom', 4rem);
+        line-height: 1.2;
+        color: $secondary-alt;
+        letter-spacing: 0.03125em;
+        span{
+            @include bebus-book;
+            color: $text-dark;
+        }
+
+        @include at-breakpoint($bp2) {
+          @include rem('font-size', 8.4rem );
+        }
+    }
+
+   .face{
+      display: none;
+   }
+
+   p {
+      clear: both;
+   }
+
+   @include at-breakpoint($bp3) {
+      line-height: 1.4;
+   }
+
+   @include at-breakpoint($bp2) {
+      h1{
+         @include span-columns(8,12);
+         @include suffix(1);
+      }
+
+      .face{
+        display: block;
+        @include span-columns(4 omega,12);
+        position: relative;
+        @include rem('top', 8rem);
+        @include rem('right', 2rem);
+        // @include suffix(1); 
+      }
+   }
+}
+
+.widget-area {
+   @include cfix;
+   @include rem('margin-bottom', 4rem);
+}
+
+.box-widget {
+    background: $primary;
+    @include rem('padding', 2rem);
+    @include rem('margin-bottom', 2rem);
+    @include rem('min-height', 25rem);
+    @include at-breakpoint($bp3) {
+        @include span-columns(5,10);
+        @include rem('min-height', 30rem);
+        &:last-child{
+            @include omega;
+        }
+    }
+
+    .title {
+        @include bebus-reg;
+        @include rem('margin-bottom', 1.8rem);
+        @include rem('font-size', 3.8rem );
+        color: $white;
+        margin-top: 0;
+        //text-shadow: 1px 1px 1px rgb(173,25,25);
+    }
+
+   .icon{
+        @include rem('font-size', 3.2rem);
+        text-shadow: none;
+        color: $bg;
+        // position: relative;
+        // top: 3px;
+   }
+}
+
+ul.mod-list {
+    @include fira;
+    @include rem('font-size', 2.2rem );
+    @include rem('padding-left', 0 );
+    list-style-type:  none;
+    li{
+        @include rem('line-height', 2.4rem);
+    }
+    a { 
+        color: $white; 
+        display: block;
+        @include rem('padding', 1.4rem 0 );
+        @include single-transition(color, 300ms);
+        &:hover{
+            color: $text-light; 
+        }
+    }
+}
+
+//Extends mod list
+ul.tweets{
+
+   li{
+      @include cfix;
+      @include rem('margin-bottom', 3rem)
+   }
+   p{
+        @include rem('font-size', 2.2rem );
+        @include fira;
+        margin-bottom: 0;
+        padding-right: 0;
+        color: white;      
+        line-height: 1.2;
+   }
+   a{
+        display: inline;
+   }
+   span {
+        word-wrap:break-word;
+   }
+   .timePosted{
+        @include rem('font-size', 1.4rem );
+        @include rem('margin', 0 0 1rem 0 );
+
+        // @include border-radius(3px);
+        // @include box-shadow($secondary 2px 2px);
+        display: inline;
+        // float: right;
+        clear: both;
+        color: $text-light;
+        // background: $text-light;
+
+   }
+}
+
+// ---------------------------------------------------------------------------
+// Area on homepage lists a set of skills and tools used. Bubble/circle inplemenetation
+
+.home-skills{
+    background: $secondary;
+    position: relative;
+    @include rem('padding', 4rem);
+    // @include bleed(3);
+
+    h2{ 
+        @include bebus-book;
+        @include rem('font-size', 7.8rem);
+        margin-top: 0;
+        color: white;
+        .icon{
+            @include rem('font-size', 3.8rem);
+        }
+    }
+}
+
+ul.bubble-list {
+   @include cfix;
+   @include rem('margin', 6rem 0 0 0);
+   list-style: none;
+   padding: 0;
+   display: block;
+
+   li{
+        @include span-columns(2);
+        @include nth-omega(2n);    
+
+        @include at-breakpoint($bp2){
+            @include span-columns(2,6);
+            @include remove-nth-omega(2n);
+            @include nth-omega(3n);  
+        }
+
+    @include at-breakpoint($bp4){
+        @include span-columns(3,12);
+        @include remove-nth-omega(3n);
+        @include remove-nth-omega(2n);
+        @include nth-omega(4n);   
+    }
+
+    @include rem('margin-bottom', 3rem );
+
+    .circle {
+        width: 100%;
+        height:0;
+        padding-bottom: 100%;
+        background: $bg; 
+        display: block;
+        @include border-radius(50%);
+    }
+
+    span.text {
+        @include bebus-book;
+        @include rem('font-size', 3.6rem);
+        float: left;
+        width: 100%;
+        padding-top: 50%;
+        line-height: 1em;
+        margin-top: -0.5em;
+        text-align: center;
+        color: #333;
+
+        @include at-breakpoint($bp2){
+        @include rem('font-size', 4.8rem);
+        }
+
+        &.double {
+            margin-top: -0.8em;
+        }
+    }
+
+      &:nth-child(2n){
+        .circle {
+            background: $primary;
+        }
+        .text{
+            color: white;
+        }
+      }
+   }
+}
+
+
+
+/* ==========================================================================
+   BLOG
+   ========================================================================== */
+ 
+.post-page {
+   
+}
+.posts {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.post-item { 
+    @include rem('margin-bottom', 8rem);
+
+    header{
+      position: relative;
+    }
+    h1 {
+        color: $secondary-alt;
+    }
+    .post-title {
+        @include fira-reg;
+        @include rem('font-size', 4.2rem );
+        @include rem('padding-left', 2.5rem);
+        line-height: 1.2;
+        margin-bottom: 0;
+        border-left: $title-border;
+
+        a{ 
+            display: block;
+            color: $secondary-alt;
+            @include single-transition(color, 300ms);
+            &:hover {
+                color: (lighten($secondary-alt, 20%));
+            }
+        }
+
+    }
+    hr {
+        @include rem('margin-top', 1.5rem);
+        border-color: $text-light;
+    }
+}
+
+.post-item-excerpt{
+   @include rem('margin-top', 2.5rem);
+}
+
+
+// ---------------------------------------------------------------------------
+// Meta data for a post, including date and tags for content
+
+.post-meta{
+    @include fira-reg;
+    @include cfix;
+    @include rem('font-size', 1.6rem );
+    @include rem('padding-left', 3.3rem);
+    @include rem('padding-top', 0.5rem);
+    border-left: $title-border;
+    color: $primary;
+    
+
+    time{
+        + .icon-tag {
+            margin-right: 2px;
+        }
+    }
+
+    .meta-item {
+        @include rem('margin-right', 1.5rem);
+    }
+    .icon {
+        margin-right: 5px;
+        @include rem('font-size', 1.5rem );
+
+        //color: 
+    }
+}
+
+.post-meta-tags {
+   @include rem('margin-left', 2rem);
+   
+}
+
+span.post-meta-tag {
+   @include rem('margin-right', 0.2rem);
+}
+
+.post-cover {
+   position: absolute;
+   right: 0;
+   top: -10px;
+}
+
+
+// ---------------------------------------------------------------------------
+// Pagination that goes at the bottom of blog index. 
+// Includes mobile friendly styling
+
+.pagination {
+   
+    ul {
+      @include cfix;
+      list-style-type: none; 
+      padding-left: 0;
+      float: left;
+      background: $secondary-alt;
+
+      li {
+         float: left;
+         display: table;
+
+         a, .active {
+            @include rem('padding-left', 2.5rem);
+            @include rem('padding-right', 2.5rem);
+            @include rem('height', 5.1rem);
+            @include single-transition(background, 0.3s);
+            @include fira-reg;
+            @include rem('font-size', 2rem);
+
+            position: relative;
+            display: table-cell; 
+            vertical-align: middle;          
+            color: $bg-alt;                      
+         }
+
+         a:hover{
+            background: $secondary-alt-2;
+         }
+
+         .active{
+            color: $text-light;
+            @include at-breakpoint($bp3) {
+               color: white;
+               background: $primary;
+            }   
+            
+         }
+
+         .icon {
+            @include rem('font-size', 2.6 rem);
+            display: table-cell;
+            margin: 0;
+         }       
+
+         &.disabled {
+            display: none;
+         }
+
+         &:last-child {
+            margin-right: 0;
+         }
+
+         &.first-page.next .icon{
+            display: inline;
+            position: relative;
+            @include rem('margin-left', 1.5rem);
+            top: 3px;
+         }
+
+         &.page-number {
+            display: none;
+            &.page-current {
+               @include rem('width', 13rem );
+               display: table;
+               text-align: center;
+
+               .active{
+                  display: table-cell;
+               }
+            }
+
+            @include at-breakpoint($bp3) {
+               display: table;
+
+               &.page-current {
+                  display: none;
+               }
+            }
+         }
+      }
+   }  
+}
+
+
+/* ==========================================================================
+   POST PAGE
+   ========================================================================== */
+
+.post-content {
+   @include rem('margin-top', 4rem );
+}
+
+
+.highlight {
+   @include rem('margin-bottom', 3rem );
+
+   code {
+      background: none;
+   }
+}
+
+ul, ol {
+   @include fira-reg;
+   @include rem('font-size', 2.2rem );
+   color: $primary;
+
+}
+
+code{
+    @include fira-mono;
+    @include border-radius(0.5rem);
+    @include rem('font-size', 2rem );
+    padding: 0.2em;
+    background: $secondary-alt-2;
+    color: white;
+}
+
+blockquote {
+    background: $secondary-alt-2;
+    border-left: 10px solid $primary;;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+    color: white;
+}
+
+.post-content a {
+    color: $primary;
+    line-height: 1;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        background: $primary;
+        display: block;
+        @include single-transition(width 2s);
+    }
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}

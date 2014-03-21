@@ -1,0 +1,23 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+
+$breakpoint-raw-output: true;
+$breakpoint-media-output: false;
+
+@import "compass/css3";
+@import "../bower_components/normalize.scss/_normalize.scss";
+
+/* ==========================================================================
+   IMPORT PARTIALS
+   ========================================================================== */
+@import "partials/_mixins.scss";
+@import "partials/_variables.scss";
+@import "partials/_grid.scss";
+@import "partials/_typography.scss";
+@import "partials/_core.scss";
+@import "partials/_nav.scss";
+@import "partials/_footer.scss";
+

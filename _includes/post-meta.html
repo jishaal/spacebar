@@ -1,0 +1,24 @@
+ <div class="post-meta">
+    <time datetime="{{ include.caller.date }}" class="meta-item"><span class="icon icon-calendar"></span>{{ include.caller.date | date_to_long_string }}</time>
+    
+    {% if include.caller.tags.size != 0 %}
+        <span class="meta-item">
+            <span class="icon icon-tag"></span>     
+            {% for tag in include.caller.tags %}
+                <span class="post-meta-tag">{{ tag }}</span>
+            {% endfor %}      
+        </span>
+    {% endif %} 
+
+    {% capture words %}
+        {{ include.caller.content | number_of_words | minus: 350 }}
+    {% endcapture %}
+
+    {% unless words contains "-" %}
+        <span class="meta-item"><span class="icon icon-clock"></span><span class="post-meta-tag read-time">{{ words | plus: 350 | divided_by: 180 | append: " minute read" }}</span></span>
+    {% endunless %}
+
+    {% if include.caller.cover %}
+        <img src="{{ include.caller.cover }}" class="post-cover">
+    {% endif %}
+</div>

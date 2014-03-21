@@ -1,0 +1,15 @@
+name: "Spacebar"
+description: "a blog"
+
+url: "http://localhost:4000"
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+permalink: /blog/:categories/:year/:month/:day/:title.html
+
+
+markdown: rdiscount
+
+pygments: true
+
+exclude: [sass, src, test, bower_components, node_modules, lib, 'bower.json', 'Gemfile', 'Gemfile.lock', 'Gruntfile.js', 'package.json', 'requirements.txt', 'README.md', 'deploy.json', 'config.rb', '*.sublime*']

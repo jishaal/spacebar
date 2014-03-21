@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+<div class="container">
+
+    <div class="post-page">
+        <ul class="posts">
+            {% for post in paginator.posts %}
+            <li class="post-item">
+
+                <header class="post-item-head">
+                    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title | truncatewords: 10 | }}</a></h2>
+            
+                    {% include post-meta.html caller=post %}
+
+                    <hr>                
+                </header>
+
+                <article class="post-item-excerpt">
+                    {% comment %} Markdownify to stop <p> tag wrap {% endcomment %} 
+                    {{ post.excerpt | markdownify }}
+                </article>
+                    
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if paginator.total_pages > 1 %}
+        <div class="pagination">
+          <ul>
+            {% if paginator.previous_page %}
+                {% if paginator.previous_page == 1 %}
+                    <li class="prev"><a href="/blog"><i class="icon icon-angle-left"></i></a></li>
+                {% else %}
+                    <li class="first-page"><a href="/blog"><i class="icon icon-double-angle-left"></i></a></li>
+                    <li class="prev"><a href="/blog/page{{ paginator.previous_page }}"><i class="icon icon-angle-left"></i></a></li>
+                {% endif %}
+            {% else %}
+            <li class="prev disabled"><span class="disabled"><i class="icon icon-angle-left"></i></span></li>
+            {% endif %}
+
+            {% if paginator.page == 1 %}
+            <li class="page-number"><span class="active">1</span></li>
+            {% else %}
+            <li class="page-number"><a href="/blog">1</a></li>
+            {% endif %}
+
+            {% for count in (2..paginator.total_pages) %}
+              {% if count == paginator.page %}
+              <li class="page-number"><span class="active">{{ count }}</span></li>
+              {% else %}
+              <li class="page-number"><a href="/blog/page{{ count }}">{{ count }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if paginator.page > 1 %}
+            <li class="page-number page-current"><span class="active">Page {{ paginator.page }} </span> </li>
+            {% endif %}
+
+            {% if paginator.next_page %}
+            <li class="next {% if paginator.page == 1 %}first-page{% endif %}"><a href="/blog/page{{ paginator.next_page }}">{% if paginator.page == 1 %}Next{% endif %}<i class="icon icon-angle-right"></i></a></li>
+            {% else %}
+            <li class="next disabled"><span class="disabled">Next<i class="icon icon-angle-right"></i></span></li>
+            {% endif %}
+          </ul>
+        </div>
+    {% endif %} 
+</div>
+

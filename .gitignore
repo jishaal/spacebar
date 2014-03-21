@@ -1,0 +1,8 @@
+bower_components/
+node_modules/
+.sass-cache/
+/css
+_site/
+_demos/
+spacebar-proj.sublime-project
+spacebar-proj.sublime-workspace

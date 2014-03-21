@@ -1,0 +1,327 @@
+nav {
+	background: $primary;
+	@include cfix;
+	// position: fixed;
+	// right: 0;
+	// left: 0;
+	// z-index: 999;
+	// opacity: 0.94;
+	.brand-wrapper {
+		@include rem('padding', 2rem 2rem);
+	}
+	a.brand{
+		float: left;
+
+		background: url(/images/spacebar-small.png) no-repeat;
+	    background-size: 180px 45px;	    
+	    width: 180px;
+	    height: 45px;
+
+		@media
+		only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (   min--moz-device-pixel-ratio: 2),
+		only screen and (     -o-min-device-pixel-ratio: 2/1),
+		only screen and (        min-device-pixel-ratio: 2),
+		only screen and (                min-resolution: 192dpi),
+		only screen and (                min-resolution: 2dppx) { 			  
+			background: url(/images/spacebar-small@2x.png) no-repeat;
+			background-size: 180px 45px;	
+			width: 180px;
+	    	height: 45px;  
+		}
+
+		@media
+		only screen and (-webkit-min-device-pixel-ratio: 3),
+		only screen and (        min-device-pixel-ratio: 3),
+		only screen and (                min-resolution: 288dpi),
+		only screen and (                min-resolution: 3dppx) { 			  
+			background: url(/images/spacebar-small@3x.png) no-repeat;
+			background-size: 180px 45px;	
+			width: 180px;
+	    	height: 45px;  
+		}
+	}
+
+
+	.menu-icon {
+		@include rem('margin-top', 0.5rem );
+		@include translate(0,0);
+		float: right;
+		position: relative;
+		height: 40px;
+		width: 40px;
+		font-size: 14px;
+		cursor: pointer;
+		
+		em{
+			display: block;
+			position: absolute;
+			top: 40%;
+			@include rem('width', 1.3rem );
+			@include rem('height', 1.3rem );
+			border: 1px solid white;
+			@include border-radius(8px);
+			text-indent: -9999px;
+			@include single-transition(background, 0.3s);
+			
+			&:nth-child(1){
+				margin-left: 0;
+			}
+			&:nth-child(2){
+				margin-left: 14px;
+			}
+			&:nth-child(3){
+				margin-left: 28px;
+			}
+		}
+
+		// &:hover{
+		// 	em {
+		// 		background: white;
+		// 	}
+		// }
+	}
+
+	ul{ 
+		@include bebus-reg;
+		padding-left: 0;
+		margin: 0;
+		list-style-type: none;
+		
+		a {
+			color: $white;
+			text-decoration: none;
+			display: block;
+			@include rem('padding',1rem 1.5rem);
+			@include single-transition(color, 500ms);
+			@include single-transition(border, 0.3s);		
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// // Mobile specific navigation
+
+	@include at-breakpoint($bp2-max) {
+
+		.container {
+			padding: 0;
+		}
+
+		.brand-wrapper {
+			@include cfix;
+			position: relative;
+			background: $primary;
+			z-index: 100;
+		}
+
+		// Dots become white and moves the menu into view
+		.open {
+			.menu-icon {
+				em {background: white;}
+			}
+			+.nav-main {
+				opacity: 0.99;
+				@include translate3d(0, 0);
+			}
+		}
+	
+		.nav-main {
+			$anim1: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+			$anim2: cubic-bezier(.694,.0482,.335,1);
+			@include translate(0, -100%);
+			@include transition(all 400ms $anim2);
+			@include transition-timing-function($anim2);
+			position: absolute;			
+			margin-top: 8.7rem;
+			top: 0;
+			right: 0;
+			left: 0;	
+			bottom: 0;		
+			background: $secondary-alt;
+			// border-top: 1px solid $white;
+			z-index: 99;
+			opacity: 0.66;
+		
+		}
+
+		ul {
+			@include rem('font-size', 5.2rem);
+			@include rem('padding-top', 3rem);
+			display: block;		
+			// text-align: center;
+			li{
+				@include rem('padding-left', 1rem);
+				a {
+					// color: $secondary-alt-2
+				}
+				&:hover a {
+					color: $secondary-alt-2;
+				}
+			}
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// Tablet and up, show inline list
+		
+	@include at-breakpoint($bp3) {
+
+		.container {
+			padding-bottom: 0;
+			padding-top: 0;
+		}
+
+		.brand-wrapper {
+			@include span-columns(2,6);
+			padding: 0;
+		}
+
+		a.brand{
+			@include rem('margin-top', 1rem);
+			position: relative;
+			background: url(/images/spacebar.png) no-repeat;
+		    background-size: 240px 60px;	    
+		    width: 240px;
+		    height: 60px;
+
+			@media
+			only screen and (-webkit-min-device-pixel-ratio: 2),
+			only screen and (   min--moz-device-pixel-ratio: 2),
+			only screen and (     -o-min-device-pixel-ratio: 2/1),
+			only screen and (        min-device-pixel-ratio: 2),
+			only screen and (                min-resolution: 192dpi),
+			only screen and (                min-resolution: 2dppx) { 			  
+				background: url(/images/spacebar@2x.png) no-repeat;
+				background-size: 240px 60px;	
+				width: 240px;
+		    	height: 60px;  
+			}
+
+			@include at-breakpoint($bp4) {
+				@include rem('margin-top', 1.6rem);
+			}
+
+			.blink {
+				position: absolute;
+				right: -20px;
+				bottom: 6px;
+				height: 3px;
+				width: 32px;
+				background: $white;
+				visibility: hidden;
+			}	
+
+			.no-touch & {
+				&:hover {
+					.blink {   					
+                        -webkit-animation: 	blink 1s steps(5, start) infinite;
+                        -moz-animation: 	blink 1s steps(5, start) infinite;
+                        -o-animation: 		blink 1s steps(5, start) infinite;
+                        animation: 			blink 1s steps(5, start) infinite;	
+					}					
+				}
+			}	
+		}		
+
+		.nav-main {
+			@include span-columns(4 omega,6);
+		}
+
+		.menu-icon {
+			display: none;
+		}
+
+		ul{
+			float: right;
+
+			li{
+				@include rem('height',9rem);
+				overflow: hidden;
+				display: inline;
+				float: left;
+				&:first-child a{
+					padding-left: 0;
+				}
+			}
+
+			li:first-child a{
+				@include rem('padding-left',3rem);
+			}
+
+			a {
+				@include rem('padding',0 3rem);
+				@include rem('height',9.5rem);
+				@include at-breakpoint($bp4) {
+					@include rem('height',9.4rem);
+				}
+				@include rem('font-size', 2.8rem);
+				@include single-transition(height, .2s);
+				border-bottom: 4px solid $white;
+
+				.no-touch & {
+					&:hover, &:active{
+						@include rem('height',9rem);
+					}						
+				}	
+				.touch & {
+					&:hover{
+						color: $text-light;
+					}						
+				}	
+				span{
+					@include rem('line-height',9.4rem);
+				}
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Keyframes for blinking logo element on hover
+
+@-webkit-keyframes blink {
+    from {
+        visibility: visible;
+    }
+}
+@-moz-keyframes blink {
+    from {
+        visibility: visible;
+    }
+}
+@-o-keyframes blink {
+    from {
+        visibility: visible;
+    }
+}
+@keyframes blink {
+    from {
+        visibility: visible;
+    }
+}
+
+// Alt keyframes
+
+// @keyframes blink {  
+//   0% { opacity: 1.0; }
+//   50% { opacity: 0.0; }
+//   100% { opacity: 1.0; }
+// }
+// @-webkit-keyframes blink {
+//   0% { opacity: 1.0; }
+//   50% { opacity: 0.0; }
+//   100% { opacity: 1.0; }
+// }
+
+// ---------------------------------------------------------------------------
+// Scale page/content down when showing mobile nav
+.page-wrap {
+	@include at-breakpoint($bp2-max) {	
+		@include scale3d(1,1,1);
+		@include transition(all 0.4s);
+
+		&.scale{			
+			@include scale3d(0.95,0.95,0.95);			
+		}
+	}
+}

@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<div class="container">
+  <!-- introduction -->
+  <section class="home-intro">
+    <h1>
+        Hi, I'm <span>Jishaal</span> <br> 
+        A <span>ux/web developer</span> creating <br>
+        front end <span>magic</span>
+    </h1>
+    <img src="images/face.png" alt="Jishaal's face" class="face">
+    <p>I code, design and create. With a honours qualification in computer science focusing on internet applications and interaction design, I live and breathe for the web. Feel free to get in-touch with me today.</p>
+</section>
+
+<!-- homepage widgets -->
+<section class="widget-area">
+  <div class="box-widget">
+      <h3 class="title"><i class="icon icon-quill"></i> Latest Posts</h3>
+      <ul class="mod-list">
+          {% for post in site.posts limit: 5 %}
+          <li><a href="{{ post.url }}">{{ post.title }}...</a></li>
+          {% endfor %}
+      </ul>
+  </div>
+
+  <div class="box-widget">
+    <h3 class="title"><i class="icon icon-twitter2"></i> Tweets </h3>
+    <ul class="mod-list tweets">
+    </ul>
+</div>
+
+      <!-- <div class="box-widget">
+          <h3 class="title">Social</h3>
+          <ul class="mod-list">   
+          </ul>
+      </div> -->
+  </section>
+</div>
+
+<!-- Arbitrary experience values -->
+
+<section class="home-skills">
+    <div class="container">
+      <h2><i class="icon icon-wrench"></i>Toolset</h2>
+
+      <p class='p-alt'>I currently work as a front end developer for a small digital web agency in Auckland, NZ. With a skill-set that is continuously expanding, the following tools are what I currently use on a daily basis.</p>
+
+      <ul class="bubble-list">
+          <li><span class="text">HTML5</span><div class="circle"></div></li>
+          <li><span class="text">CSS3</span><div class="circle"></div></li>
+          <li><span class="text">SASS</span><div class="circle"></div></li>
+          <li><span class="text double">JavaScript/</br>jQuery</span><div class="circle"></div></li>
+          <li><span class="text">PHP</span><div class="circle"></div></li>
+          <li><span class="text">SilverStripe</span><div class="circle"></div></li>
+          <li><span class="text">Grunt/Bower</span><div class="circle"></div></li>
+          <li><span class="text">GIT</span><div class="circle"></div></li>
+
+      </ul> 
+  </div> 
+</section>
+

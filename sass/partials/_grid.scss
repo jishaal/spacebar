@@ -1,0 +1,103 @@
+/* ==========================================================================
+   CUSTOM GRID USING SUSY
+   ========================================================================== */
+
+@import "../bower_components/susy/sass/susy";
+
+$total-columns  	: 4;             	// a 15-column grid
+$column-width       : 6rem;         	// each column is 3.75em wide
+$gutter-width       : 2rem;         	// 1.25em gutters between columns
+$grid-padding       : $gutter-width;  	// grid-padding equal to gutters
+$container-style    : fluid;
+
+$no-mq-prefix	    : ltie9;
+
+$bp2			    : 58rem 6 $no-mq-prefix;			// 480px - landscape phones
+$bp3			    : 72.1rem 9 $no-mq-prefix;			// 720px - tablets
+$bp4 			    : 96rem 12 $no-mq-prefix;			// 960px - small laptops
+$bp5			    : 120rem 15 $no-mq-prefix;				// 1200px - large desktop
+
+$bp2-max			: 9 72rem $no-mq-prefix;
+//
+$base-font-size     : 10px;
+// $grid-on 		    : t;
+$grid-on 		    : f;
+
+html {
+
+	font-size: 42.5%;
+	@include at-breakpoint($bp3) {
+		font-size: 52.5%;
+	}
+    @include at-breakpoint($bp4) {
+		font-size: 62.5%;
+	}
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+//Add border-box to all *
+@include border-box-sizing;
+
+@mixin showgrid {
+	@if $grid-on == t{
+		@include susy-grid-background;
+	}
+}
+
+.container {
+  	// page acts as a container for our grid.
+	@include container($total-columns,$bp2,$bp3,$bp4,$bp5);
+	@include showgrid;
+  	// background: white;
+
+
+	@include at-breakpoint($bp2) {
+		// Establish our new 8-column container.
+		@include container;
+		@include showgrid;
+	}
+
+	@include at-breakpoint($bp3) {
+		// Establish our new 8-column container.
+		@include container;
+		@include showgrid;
+	}
+
+	@include at-breakpoint($bp4) {
+		// Establish our new 8-column container.
+		@include container;
+		@include showgrid;
+	}
+
+  	@include at-breakpoint($bp5) {
+		// Establish our new 8-column container.
+		@include container;
+		@include rem('max-width', 120rem);
+		@include showgrid;
+  	}
+
+
+ //  	// header and footer are full-width by default.
+	// header, footer { clear: both; }
+
+ //  	// nav spans 3 columns of total 12.
+	
+
+	// .content {
+	// 	// content spans the final (omega) 9 columns of 12.
+	// 	@include span-columns(9 omega,12);
+
+	// 	// main content spans 6 of those 9 columns.
+	// 	.main { @include span-columns(6,9); }
+
+	// 	// secondary content spans the final 3 (omega) of 9 columns.
+	// 	.secondary { @include span-columns(3 omega,9); }
+	// }
+}
+
+
+
+
