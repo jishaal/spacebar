@@ -1,9 +1,87 @@
 @import "compass/layout.scss";
 
-$sticky-height: 100px;
+$sticky-height: 360px;
  
 @include sticky-footer($sticky-height, ".page-wrap", ".layout-footer", ".footer");
 
 .footer{
 	background: $primary;
+	@media screen and (max-width: 46rem ) {
+		height: 460px;
+	}
+}
+.footer-content {
+	@include rem('padding', 2rem 0);
+	@include cfix;
+}
+
+.about-block {
+	@include rem('padding-top', 2rem);
+	@include at-breakpoint($bp3) {
+		@include span-columns(4,12);
+		float: left;
+	}
+	h2 {
+		color: $text-light;
+	}
+	p {
+		color: $white;
+	}
+	a {
+		color: $white;
+		border-bottom: 1px dotted white;
+		&:hover {
+			border-bottom: 1px solid white;
+		}
+	}
+
+}
+.social-block {
+	@include at-breakpoint($bp3) {
+		@include span-columns(4 omega,12);
+		margin-top: 9rem;
+	}
+}
+.social {
+	@include rem('margin-top', 6rem );
+	@include cfix;
+	list-style: none;
+	display: block;
+	padding: 0;
+	@include at-breakpoint($bp3) {
+		float: right;
+		margin-top: 0;
+	}
+
+	li {
+		float: left;
+		@include rem('width', 7rem );
+		@include rem('height', 7rem );
+		@include rem('margin-right', 2rem );
+		@include rem('margin-bottom', 2rem );
+		@include border-radius(50%);
+		@include transition(all 0.45s);
+		opacity: 0.3;
+		background: $white;
+		text-align: center;
+		&:last-child {
+			margin-right: 0;
+		}
+		a {
+			@include rem('font-size', 4.2rem );
+			@include rem('line-height', 7rem );
+			@include transition(all 0.45s);
+			color: $primary;
+			display: block;
+			height: 100%;
+			opacity: 0.8;
+			&:hover{
+				opacity: 1;
+				@include rotateZ(360deg);
+			}
+		}
+		&:hover, &:active {
+			opacity: 1;
+		}
+	}
 }

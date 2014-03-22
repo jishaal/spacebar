@@ -96,6 +96,7 @@ nav {
 			@include single-transition(color, 500ms);
 			@include single-transition(border, 0.3s);		
 		}
+
 	}
 
 	// ---------------------------------------------------------------------------
@@ -152,10 +153,15 @@ nav {
 			li{
 				@include rem('padding-left', 1rem);
 				a {
-					// color: $secondary-alt-2
-				}
-				&:hover a {
 					color: $secondary-alt-2;
+					@include transition(color 0.3s);
+
+					&:hover, &:active  {
+						color: $white;
+					}
+				}				
+				&.active a {
+					color: $white;
 				}
 			}
 		}
@@ -242,6 +248,9 @@ nav {
 				&:first-child a{
 					padding-left: 0;
 				}
+				&.active a {
+					@include rem('height',9rem);
+				}
 			}
 
 			li:first-child a{
@@ -256,7 +265,7 @@ nav {
 				}
 				@include rem('font-size', 2.8rem);
 				@include single-transition(height, .2s);
-				border-bottom: 4px solid $white;
+				border-bottom: 4px solid $bg;
 
 				.no-touch & {
 					&:hover, &:active{
@@ -267,7 +276,7 @@ nav {
 					&:hover{
 						color: $text-light;
 					}						
-				}	
+				}
 				span{
 					@include rem('line-height',9.4rem);
 				}

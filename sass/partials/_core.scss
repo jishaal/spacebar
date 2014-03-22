@@ -1,6 +1,7 @@
 body {
     background: $bg;
     text-rendering: optimizeLegibility;
+    // background: url(../images/crossword.png) repeat;
 }
 
 html, body {
@@ -13,6 +14,10 @@ html, body {
     @include rem('margin-bottom', 6rem);
 }
 
+.standard-page {
+    @include rem('padding-bottom', 8rem);
+}
+
 
 /* ==========================================================================
    Homepage
@@ -22,7 +27,7 @@ html, body {
    @include rem('margin-bottom', 5.5rem);
     h1{
         @include bebus-light;
-        @include rem('font-size', 5.8rem );
+        @include rem('font-size', 6.8rem );
         @include rem('margin-bottom', 4rem);
         line-height: 1.2;
         color: $secondary-alt;
@@ -59,7 +64,6 @@ html, body {
         display: block;
         @include span-columns(4 omega,12);
         position: relative;
-        @include rem('top', 8rem);
         @include rem('right', 2rem);
         // @include suffix(1); 
       }
@@ -75,10 +79,10 @@ html, body {
     background: $primary;
     @include rem('padding', 2rem);
     @include rem('margin-bottom', 2rem);
-    @include rem('min-height', 25rem);
+    @include rem('min-height', 40rem);
     @include at-breakpoint($bp3) {
-        @include span-columns(5,10);
-        @include rem('min-height', 30rem);
+        @include span-columns(5,15);
+        @include rem('min-height', 52rem);
         &:last-child{
             @include omega;
         }
@@ -161,25 +165,33 @@ ul.tweets{
 // Area on homepage lists a set of skills and tools used. Bubble/circle inplemenetation
 
 .home-skills{
-    background: $secondary;
+    background: $secondary-alt;
     position: relative;
-    @include rem('padding', 4rem);
+    @include rem('padding', 4rem 0);
     // @include bleed(3);
 
     h2{ 
-        @include bebus-book;
-        @include rem('font-size', 7.8rem);
+        @include bebus-light;
+        letter-spacing: 0.0625rem;
+        @include rem('font-size', 6.8rem);
         margin-top: 0;
-        color: white;
+        color: $bg;
         .icon{
-            @include rem('font-size', 3.8rem);
+            @include rem('font-size', 4.8rem);
+            position: relative;
+            top: -3px;
+            color: $secondary-alt-2;
         }
+    }
+
+    p {
+        color: $white;
     }
 }
 
 ul.bubble-list {
    @include cfix;
-   @include rem('margin', 6rem 0 0 0);
+   @include rem('margin', 6rem 0 );
    list-style: none;
    padding: 0;
    display: block;
