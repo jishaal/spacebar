@@ -12,13 +12,13 @@ active: home
         front end <span>magic</span>
     </h1>
     <img src="images/face.png" alt="Jishaal's face" class="face">
-    <p>Jishaal codes, designs and creates. With a honours qualification in computer science focusing on internet applications and interaction design, he lives and breathes for the web. Feel free to get in-touch with him today.</p>
+   <!--  <p>Jishaal codes, designs and creates. With a honours qualification in computer science focusing on internet applications and interaction design, he lives and breathes for the web. Feel free to get in-touch with him today.</p> -->
 </section>
 
 <!-- homepage widgets -->
 <section class="widget-area">
   <div class="box-widget">
-      <h3 class="title"><i class="icon icon-quill"></i> Latest Posts</h3>
+      <h3 class="title"><a href="/blog"><i class="icon icon-quill"></i> Latest Posts</a></h3>
       <ul class="mod-list">
           {% for post in site.posts limit: 5 %}
           <li><a href="{{ post.url }}">{{ post.title }}...</a></li>
@@ -27,16 +27,16 @@ active: home
   </div>
 
   <div class="box-widget">
-    <h3 class="title"><i class="icon icon-twitter"></i> Tweets </h3>
+    <h3 class="title"><a href="http://twitter.com/jishaal"><i class="icon icon-twitter"></i> Tweets</a></h3>
     <ul class="mod-list tweets">
     </ul>
-</div>
+  </div>
 
-      <div class="box-widget">
+      <!-- <div class="box-widget">
           <h3 class="title">Listening To</h3>
           <ul class="mod-list">   
           </ul>
-      </div>
+      </div> -->
   </section>
 </div>
 

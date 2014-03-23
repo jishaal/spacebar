@@ -25,6 +25,7 @@ html, body {
 
 .home-intro{
    @include rem('margin-bottom', 5.5rem);
+   @include cfix;
     h1{
         @include bebus-light;
         @include rem('font-size', 6.8rem );
@@ -76,38 +77,39 @@ html, body {
 }
 
 .box-widget {
-    background: $primary;
-    @include rem('padding', 2rem);
+    // @include rem('padding', 2rem);
     @include rem('margin-bottom', 2rem);
-    @include rem('min-height', 40rem);
     @include at-breakpoint($bp3) {
         @include span-columns(5,15);
-        @include rem('min-height', 52rem);
-        &:last-child{
-            @include omega;
-        }
+        // &:last-child{
+        //     @include omega;
+        // }
     }
 
     .title {
-        @include bebus-reg;
+        @include bebus-book;
         @include rem('margin-bottom', 1.8rem);
-        @include rem('font-size', 3.8rem );
-        color: $white;
+        @include rem('font-size', 3.6rem );
         margin-top: 0;
-        //text-shadow: 1px 1px 1px rgb(173,25,25);
+        letter-spacing: 0.0625rem;
+        a {
+            @include transition(color 0.3s);
+            color: $secondary-alt;
+            &:hover, &:focus {
+                color: $secondary-alt-2;
+            }
+        }
     }
 
    .icon{
         @include rem('font-size', 3.2rem);
         text-shadow: none;
-        color: $bg;
-        // position: relative;
-        // top: 3px;
+        color: $primary;
    }
 }
 
 ul.mod-list {
-    @include fira;
+    @include fira-reg;
     @include rem('font-size', 2.2rem );
     @include rem('padding-left', 0 );
     list-style-type:  none;
@@ -115,7 +117,7 @@ ul.mod-list {
         @include rem('line-height', 2.4rem);
     }
     a { 
-        color: $white; 
+        color: $text-dark; 
         display: block;
         @include rem('padding', 1.4rem 0 );
         @include single-transition(color, 300ms);
@@ -134,10 +136,10 @@ ul.tweets{
    }
    p{
         @include rem('font-size', 2.2rem );
-        @include fira;
+        @include fira-reg;
         margin-bottom: 0;
         padding-right: 0;
-        color: white;      
+        color: $text-dark;      
         line-height: 1.2;
    }
    a{
@@ -416,7 +418,7 @@ span.post-meta-tag {
             display: inline;
             position: relative;
             @include rem('margin-left', 1.5rem);
-            top: 3px;
+            top: 2px;
          }
 
          &.page-number {
@@ -449,7 +451,7 @@ span.post-meta-tag {
    ========================================================================== */
 
 .post-content {
-   @include rem('margin-top', 4rem );
+   @include rem('margin-top', 6rem );
 }
 
 

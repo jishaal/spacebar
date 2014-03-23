@@ -21,7 +21,7 @@ $(document).ready(function() {
 	      list += '<li>' + tweets[n] + '</li>';
 	      n++;
 	    }
-	    element.html(list);
+	    element.hide().html(list).fadeIn();
 	}
 
 	
