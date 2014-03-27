@@ -24,7 +24,7 @@ html, body {
    ========================================================================== */
 
 .home-intro{
-   @include rem('margin-bottom', 5.5rem);
+   @include rem('margin-bottom', 3rem);
    @include cfix;
     h1{
         @include bebus-light;
@@ -63,33 +63,40 @@ html, body {
 
       .face{
         display: block;
-        @include span-columns(4 omega,12);
         position: relative;
+        @include span-columns(4 omega,12);        
         @include rem('right', 2rem);
-        // @include suffix(1); 
       }
    }
 }
 
 .widget-area {
-   @include cfix;
-   @include rem('margin-bottom', 4rem);
+    @include cfix;
+    @include rem('margin-bottom', 4rem);
+    &.tweets-loaded ul.mod-list {
+        @include translate(0, 0);
+        opacity: 1;
+    }
 }
 
 .box-widget {
-    // @include rem('padding', 2rem);
-    @include rem('margin-bottom', 2rem);
+    position: relative;
+    overflow: hidden;
+    @include rem('margin-bottom', 5rem);
+
     @include at-breakpoint($bp3) {
         @include span-columns(5,15);
-        // &:last-child{
-        //     @include omega;
-        // }
+        @include rem('margin-bottom', 3rem);
+        @include rem('min-height', 41rem);
     }
 
     .title {
         @include bebus-book;
         @include rem('margin-bottom', 1.8rem);
         @include rem('font-size', 3.6rem );
+        position:relative;
+        z-index: 2;
+        background: $bg;
         margin-top: 0;
         letter-spacing: 0.0625rem;
         a {
@@ -106,9 +113,18 @@ html, body {
         text-shadow: none;
         color: $primary;
    }
+
+   .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -16px;
+      margin-left: -16px;
+   }
 }
 
-ul.mod-list {
+.mod-list {
+    $anim2: cubic-bezier(.694,.0482,.335,1);
     @include fira-reg;
     @include rem('font-size', 2.2rem );
     @include rem('padding-left', 0 );
@@ -125,10 +141,19 @@ ul.mod-list {
             color: $text-light; 
         }
     }
+
+    .csstransforms & {
+        @include translate(0, -120%);
+        @include transition(transform 1.4s $anim2, opacity 1.4s ease-in);
+        opacity: 0;
+        z-index: 1;
+    }
 }
 
 //Extends mod list
-ul.tweets{
+.tweets{
+
+   @include rem('min-height', 30rem); 
 
    li{
       @include cfix;
@@ -148,18 +173,13 @@ ul.tweets{
    span {
         word-wrap:break-word;
    }
+
    .timePosted{
         @include rem('font-size', 1.4rem );
         @include rem('margin', 0 0 1rem 0 );
-
-        // @include border-radius(3px);
-        // @include box-shadow($secondary 2px 2px);
         display: inline;
-        // float: right;
         clear: both;
         color: $text-light;
-        // background: $text-light;
-
    }
 }
 

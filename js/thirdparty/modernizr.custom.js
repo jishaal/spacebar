@@ -1,5 +1,5 @@
 /* Modernizr (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-printshiv-load-mq-cssclasses-touch-svg
+ * Build: http://modernizr.com/download/#-printshiv-load-mq-cssclasses-csstransforms-touch-svg
  */
 ;
 
@@ -26,6 +26,13 @@ window.Modernizr = (function( window, document, undefined ) {
 
     prefixes = ' -webkit- -moz- -o- -ms- '.split(' '),
 
+
+
+    omPrefixes = 'Webkit Moz O ms',
+
+    cssomPrefixes = omPrefixes.split(' '),
+
+    domPrefixes = omPrefixes.toLowerCase().split(' '),
 
     ns = {'svg': 'http://www.w3.org/2000/svg'},
 
@@ -169,6 +176,15 @@ window.Modernizr = (function( window, document, undefined ) {
         return !!~('' + str).indexOf(substr);
     }
 
+    function testProps( props, prefixed ) {
+        for ( var i in props ) {
+            var prop = props[i];
+            if ( !contains(prop, "-") && mStyle[prop] !== undefined ) {
+                return prefixed == 'pfx' ? prop : true;
+            }
+        }
+        return false;
+    }
 
     function testDOMProps( props, obj, elem ) {
         for ( var i in props ) {
@@ -186,7 +202,20 @@ window.Modernizr = (function( window, document, undefined ) {
         }
         return false;
     }
-    tests['touch'] = function() {
+
+    function testPropsAll( prop, prefixed, elem ) {
+
+        var ucProp  = prop.charAt(0).toUpperCase() + prop.slice(1),
+            props   = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+
+            if(is(prefixed, "string") || is(prefixed, "undefined")) {
+          return testProps(props, prefixed);
+
+            } else {
+          props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
+          return testDOMProps(props, prefixed, elem);
+        }
+    }    tests['touch'] = function() {
         var bool;
 
         if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
@@ -199,6 +228,14 @@ window.Modernizr = (function( window, document, undefined ) {
 
         return bool;
     };
+
+
+
+    tests['csstransforms'] = function() {
+        return !!testPropsAll('transform');
+    };
+
+
     tests['svg'] = function() {
         return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
     };
@@ -248,8 +285,19 @@ window.Modernizr = (function( window, document, undefined ) {
     Modernizr._version      = version;
 
     Modernizr._prefixes     = prefixes;
+    Modernizr._domPrefixes  = domPrefixes;
+    Modernizr._cssomPrefixes  = cssomPrefixes;
 
     Modernizr.mq            = testMediaQuery;
+
+
+    Modernizr.testProp      = function(prop){
+        return testProps([prop]);
+    };
+
+    Modernizr.testAllProps  = testPropsAll;
+
+
     Modernizr.testStyles    = injectElementWithStyles;    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
                                                     (enableClasses ? ' js ' + classes.join(' ') : '');

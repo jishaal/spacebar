@@ -28,11 +28,8 @@ $sticky-height: 360px;
 		color: $white;
 	}
 	a {
-		color: $white;
-		border-bottom: 1px dotted white;
-		&:hover {
-			border-bottom: 1px solid white;
-		}
+		color: $text-light;
+		position: relative;
 	}
 
 }

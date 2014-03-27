@@ -21,7 +21,9 @@ $(document).ready(function() {
 	      list += '<li>' + tweets[n] + '</li>';
 	      n++;
 	    }
-	    element.hide().html(list).fadeIn();
+	    $('.widget-area').addClass('tweets-loaded');
+	   	element.html(list);
+	    $('.loading').hide();
 	}
 
 	
@@ -30,8 +32,21 @@ $(document).ready(function() {
 
 	$('.menu-icon').on('click', function(event) {
 		$('.brand-wrapper').toggleClass('open');
+		$('body').toggleClass('push');
 		$('.page-wrap').toggleClass('scale');
 	});
+
+
+	// ---------------------------------------------------------------------------
+	// ScrollReveal
+
+	 var config = {
+      viewportFactor: 0.9
+    };
+
+    window.scrollReveal = new scrollReveal(config);
+	
+	
 	
 	
 });

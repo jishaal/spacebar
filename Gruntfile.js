@@ -56,12 +56,12 @@ module.exports = function(grunt) {
 		    	files: [
 		          { expand: true, cwd: 'js/', src: '**', dest: '_site/js' }
 		        ]
-		    }
-	     //  	img: {
-	     //    	files: [
-	     //      	{ expand: true, cwd: 'img/', src: '*', dest: '_site/img', filter: 'isFile' }
-	     //    	]
-	     //  	},
+		    },
+	      	img: {
+	        	files: [
+	          	{ expand: true, cwd: 'images/', src: '*', dest: '_site/images', filter: 'isFile' }
+	        	]
+	      	}
 	     //  	fonts: {
 	     //    	files: [
 	     //      	{ expand: true, cwd: 'fonts/', src: '*', dest: '_site/fonts', filter: 'isFile' }
@@ -91,6 +91,13 @@ module.exports = function(grunt) {
 			javascript: {
 				files: ['js/*.js'],
 				tasks: ['modernizr','copy:js'],
+				options: {
+					livereload: true
+				}
+			},
+			images: {
+				files: ['images/*.png'],
+				tasks: ['copy:img'],
 				options: {
 					livereload: true
 				}
