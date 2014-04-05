@@ -4,5 +4,6 @@ node_modules/
 /css
 _site/
 _demos/
+_design/
 spacebar-proj.sublime-project
 spacebar-proj.sublime-workspace

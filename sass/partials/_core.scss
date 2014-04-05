@@ -148,6 +148,14 @@ html, body {
         opacity: 0;
         z-index: 1;
     }
+
+    .timePosted {
+        @include rem('font-size', 1.4rem );
+        @include rem('margin', 0 0 1rem 0 );
+        display: inline;
+        clear: both;
+        color: $text-light;
+    }
 }
 
 //Extends mod list
@@ -172,14 +180,6 @@ html, body {
    }
    span {
         word-wrap:break-word;
-   }
-
-   .timePosted{
-        @include rem('font-size', 1.4rem );
-        @include rem('margin', 0 0 1rem 0 );
-        display: inline;
-        clear: both;
-        color: $text-light;
    }
 }
 
