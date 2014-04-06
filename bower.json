@@ -3,7 +3,7 @@
   "dependencies": {
     "jquery-legacy": "jquery#1.10",
     "jquery-modern": "jquery#2",
-    "susy": "latest",
+    "susy": "~1.0.9",
     "normalize.scss": "latest",
     "modernizr": "latest",
     "syntax.css": "latest",

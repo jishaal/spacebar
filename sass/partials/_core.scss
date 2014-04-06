@@ -16,6 +16,7 @@ html, body {
 
 .standard-page {
     @include rem('padding-bottom', 8rem);
+    @include rem('min-height', 60rem);
 }
 
 
@@ -82,7 +83,7 @@ html, body {
 .box-widget {
     position: relative;
     overflow: hidden;
-    @include rem('margin-bottom', 5rem);
+    @include rem('margin-bottom', 2rem);
 
     @include at-breakpoint($bp3) {
         @include span-columns(5,15);
@@ -123,11 +124,13 @@ html, body {
    }
 }
 
+
 .mod-list {
-    $anim2: cubic-bezier(.694,.0482,.335,1);
+    
     @include fira-reg;
     @include rem('font-size', 2.2rem );
     @include rem('padding-left', 0 );
+    @include rem('margin', 2.4rem 0 );
     list-style-type:  none;
     li{
         @include rem('line-height', 2.4rem);
@@ -135,7 +138,7 @@ html, body {
     a { 
         color: $text-dark; 
         display: block;
-        @include rem('padding', 1.4rem 0 );
+        @include rem('padding', 0 0 1.4rem 0);
         @include single-transition(color, 300ms);
         &:hover{
             color: $text-light; 
@@ -144,7 +147,7 @@ html, body {
 
     .csstransforms & {
         @include translate(0, -120%);
-        @include transition(transform 1.4s $anim2, opacity 1.4s ease-in);
+        @include transition(transform 1.4s $anim-slidedown, opacity 1.4s ease-in);
         opacity: 0;
         z-index: 1;
     }
@@ -152,9 +155,11 @@ html, body {
     .timePosted {
         @include rem('font-size', 1.4rem );
         @include rem('margin', 0 0 1rem 0 );
-        display: inline;
+        display: block;
         clear: both;
         color: $text-light;
+        line-height: 1.7;
+
     }
 }
 
@@ -165,7 +170,7 @@ html, body {
 
    li{
       @include cfix;
-      @include rem('margin-bottom', 3rem)
+      @include rem('margin-bottom', 1.4rem)
    }
    p{
         @include rem('font-size', 2.2rem );
@@ -180,6 +185,12 @@ html, body {
    }
    span {
         word-wrap:break-word;
+   }
+
+   &.mod-list {
+      .csstransforms & {
+        @include transition(transform 1.4s 0.8s $anim-slidedown, opacity 1.4s 0.8s ease-in);
+      }
    }
 }
 
@@ -213,7 +224,7 @@ html, body {
 
 ul.bubble-list {
    @include cfix;
-   @include rem('margin', 6rem 0 );
+   @include rem('margin', 6rem 0 0 );
    list-style: none;
    padding: 0;
    display: block;
@@ -355,8 +366,7 @@ ul.bubble-list {
     .icon {
         margin-right: 5px;
         @include rem('font-size', 1.5rem );
-
-        //color: 
+        color: $secondary-alt;
     }
 }
 
@@ -540,4 +550,61 @@ blockquote p {
             width: 100%;
         }
     }
+}
+
+.button {
+  @include fira;
+  @include rem('font-size', 2rem);
+  @include transition(background 0.6s);
+  max-width: 60rem;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  vertical-align: top;
+  background: $secondary-alt;
+  color: $bg;
+
+
+  span {
+    @include fira-reg;
+  }
+
+  &.newer {
+    @include rem('padding', 1.5rem 2.5rem 1.5rem 3.5rem);
+  }
+
+  &.older {
+    @include rem('padding', 1.5rem 3.5rem 1.5rem 2.5rem);
+  }
+  .icon{
+    @include rem('font-size', 3rem);
+    @include rem('margin-top', -1.3rem);
+    margin-right: 0;
+    position: absolute;
+    top: 50%;
+    // color: $secondary-alt-2;
+  }
+  .icon-angle-right {
+    @include rem('right', 1.5rem);
+  }
+  .icon-angle-left {
+    @include rem('left', 1.5rem);
+  }
+
+  &:hover {
+    background: $secondary-alt-2;
+  }
+
+  @include at-breakpoint($bp5) {
+    width: 49%;
+    max-width: none;
+    .icon {
+       @include rem('margin-top', -1.6rem);
+    }
+    &.older {
+      float: right;
+    }
+
+  }
 }

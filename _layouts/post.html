@@ -18,9 +18,14 @@ active: blog
 		    <section class="post-content">{{ content }}</section>
 
 		    
-
-
 		</article>
+
+		 {% if page.next %} 
+		<a href="{{page.next.url}}" class="button newer"><i class="icon icon-angle-left"></i> <span>Newer: </span>{{page.next.title}}</a>
+		{% endif %}
+		 {% if page.previous %} 
+		<a href="{{page.previous.url}}" class="button older"><span>Older: </span>{{page.previous.title}} <i class="icon icon-angle-right"></i></a>
+		{% endif %}
 
 	</div>
 

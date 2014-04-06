@@ -9,13 +9,13 @@ module.exports = function(grunt) {
 				"devFile" : "bower_components/modernizr/modernizr.js",
 	      		"outputFile" : "js/thirdparty/modernizr.custom.js",
 
-	      		extra: {
-			        shiv: false,
-			        printshiv: true,
-			        load: true,
-			        mq: true,
-			        cssclasses: true
-			    },
+	      // 		extra: {
+			    //     shiv: false,
+			    //     printshiv: true,
+			    //     load: true,
+			    //     mq: true,
+			    //     cssclasses: true
+			    // },
 			    "uglify" : false,
 		        // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
 		        // You can override this by defining a "files" array below.
