@@ -5,12 +5,15 @@ active: blog
 
 {% include header.html %}
 
+<header class="post-header">
+	<h1 class="post-title container"> {{ page.title }}</h1>
+</header>
 <div class="container standard-page">
 	<div class="post-page">
 
 		<article class="post-item">
 
-		    <h1 class="post-title"> {{ page.title }}</h1>
+		 
 
 		    {% include post-meta.html caller=page %}
 

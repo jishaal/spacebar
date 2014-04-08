@@ -92,6 +92,7 @@ $ff-serif:      Georgia, Times, serif;
 
 @mixin fira-reg {
     font-family: 'fira_sans_otregular', $ff-sans;
+    line-height: 1;
 }
 
 @mixin fira-mono {

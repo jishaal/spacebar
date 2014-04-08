@@ -10,7 +10,7 @@ html, body {
 }
 
 .page-wrap {
-    @include rem('padding-top', 6rem);
+    // @include rem('padding-top', 6rem);
     @include rem('margin-bottom', 6rem);
 }
 
@@ -25,6 +25,7 @@ html, body {
    ========================================================================== */
 
 .home-intro{
+   @include rem('padding-top', 6rem);
    @include rem('margin-bottom', 3rem);
    @include cfix;
     h1{
@@ -295,7 +296,7 @@ ul.bubble-list {
    ========================================================================== */
  
 .post-page {
-   
+  @include rem('padding-top', 6rem);
 }
 .posts {
     list-style-type: none;
@@ -484,6 +485,16 @@ span.post-meta-tag {
    @include rem('margin-top', 6rem );
 }
 
+.post-header {
+  @include rem('padding', 15rem 0 );
+  background: $secondary-alt;
+  .post-title {
+    text-align: center;
+    color: $post-title  ;
+    margin-bottom: 0;
+  }
+}
+
 
 .highlight {
    @include rem('margin-bottom', 3rem );
@@ -556,6 +567,7 @@ blockquote p {
   @include fira;
   @include rem('font-size', 2rem);
   @include transition(background 0.6s);
+  line-height: 1;
   max-width: 60rem;
   margin-bottom: 5px;
   display: inline-block;
@@ -571,15 +583,15 @@ blockquote p {
   }
 
   &.newer {
-    @include rem('padding', 1.5rem 2.5rem 1.5rem 3.5rem);
+    @include rem('padding', 1.7rem 2.5rem 1.3rem 3.5rem);
   }
 
   &.older {
-    @include rem('padding', 1.5rem 3.5rem 1.5rem 2.5rem);
+    @include rem('padding', 1.7rem 3.5rem 1.3rem 2.5rem);
   }
   .icon{
     @include rem('font-size', 3rem);
-    @include rem('margin-top', -1.3rem);
+    @include rem('margin-top', -1.5rem);
     margin-right: 0;
     position: absolute;
     top: 50%;
@@ -599,9 +611,6 @@ blockquote p {
   @include at-breakpoint($bp5) {
     width: 49%;
     max-width: none;
-    .icon {
-       @include rem('margin-top', -1.6rem);
-    }
     &.older {
       float: right;
     }
