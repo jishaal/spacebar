@@ -8,18 +8,13 @@ active: blog
 <header class="post-header">
 	<h1 class="post-title container"> {{ page.title }}</h1>
 </header>
-<div class="container standard-page">
-	<div class="post-page">
+<div class="container standard-page post-single">
+  	{% include post-meta.html caller=page %}
+	<div class="post-wrap">
 
 		<article class="post-item">
 
-		 
-
-		    {% include post-meta.html caller=page %}
-
-
 		    <section class="post-content">{{ content }}</section>
-
 		    
 		</article>
 

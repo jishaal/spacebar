@@ -277,8 +277,8 @@ nav {
 				// 	@include rem('height',9.4rem);
 				// }
 				@include rem('font-size', 2.8rem);
-				@include single-transition(height, .2s);
-				border-bottom: 4px solid $bg;
+				@include single-transition(height, 0.3s);
+				border-bottom: 5px solid $bg;
 
 				.no-touch & {
 					&:hover, &:active{

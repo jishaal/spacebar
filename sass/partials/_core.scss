@@ -25,21 +25,22 @@ html, body {
    ========================================================================== */
 
 .home-intro{
-   @include rem('padding-top', 6rem);
+   @include rem('padding-top', 8rem);
+   @include rem('padding-bottom', 8rem);
    @include rem('margin-bottom', 3rem);
    @include cfix;
+   background: $secondary-alt;
     h1{
         @include bebus-light;
         @include rem('font-size', 6.8rem );
-        @include rem('margin-bottom', 4rem);
-        line-height: 1.2;
-        color: $secondary-alt;
+        line-height: 1.2;        
         letter-spacing: 0.03125em;
+        margin-bottom: 0;
+        color: $bg;
         span{
             @include bebus-book;
-            color: $text-dark;
+            color: $text-light;           
         }
-
         @include at-breakpoint($bp2) {
           @include rem('font-size', 8.4rem );
         }
@@ -59,16 +60,16 @@ html, body {
 
    @include at-breakpoint($bp2) {
       h1{
-         @include span-columns(8,12);
-         @include suffix(1);
+         //@include span-columns(5,12);
+         //@include suffix(1);
       }
 
-      .face{
-        display: block;
-        position: relative;
-        @include span-columns(4 omega,12);        
-        @include rem('right', 2rem);
-      }
+      // .face{
+      //   display: block;
+      //   position: relative;
+      //   @include span-columns(4 omega,12);        
+      //   @include rem('right', 2rem);
+      // }
    }
 }
 
@@ -295,9 +296,10 @@ ul.bubble-list {
    BLOG
    ========================================================================== */
  
-.post-page {
+.blog-page {
   @include rem('padding-top', 6rem);
 }
+
 .posts {
     list-style-type: none;
     padding-left: 0;
@@ -481,9 +483,11 @@ span.post-meta-tag {
    POST PAGE
    ========================================================================== */
 
-.post-content {
-   @include rem('margin-top', 6rem );
+.post-wrap {
+    @include rem('margin-top', 6rem );
 }
+
+.post-single {}
 
 .post-header {
   @include rem('padding', 15rem 0 );
@@ -495,6 +499,18 @@ span.post-meta-tag {
   }
 }
 
+.post-single {
+  .post-meta {
+    @include rem('font-size', 2.2rem);
+    @include rem('padding-top', 3rem);
+    padding-left: 0;
+    border: none;
+
+    .icon {
+       @include rem('font-size', 2.2rem);
+    }
+  }
+}
 
 .highlight {
    @include rem('margin-bottom', 3rem );
@@ -541,26 +557,34 @@ blockquote p {
     color: white;
 }
 
-.post-content a {
+.post-content {
+
+  a {
     color: $primary;
     line-height: 1;
     position: relative;
 
-    &:after {
-        position: absolute;
-        content: "";
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        background: $primary;
-        display: block;
-        @include single-transition(width 2s);
-    }
-    &:hover {
-        &:after {
-            width: 100%;
-        }
-    }
+      &:after {
+          position: absolute;
+          content: "";
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          background: $primary;
+          display: block;
+          @include single-transition(width 2s);
+      }
+      &:hover {
+          &:after {
+              width: 100%;
+          }
+      }
+  }
+
+  p {
+    @include rem('margin-bottom', 4rem);
+  }
+
 }
 
 .button {
