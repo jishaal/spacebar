@@ -93,11 +93,19 @@ html, body {
         @include span-columns(5,15);
         @include rem('margin-bottom', 3rem);
         @include rem('min-height', 41rem);
-    }
+        @include rem('padding-right', 3rem );
 
+        &:last-child {
+            margin-right: 0;
+        }
+
+    }
+    .status-tag {
+        color: $text-dark;
+    }
     .title {
         // @include bebus-book;
-        // @include rem('margin-bottom', 1.8rem);
+        @include rem('margin-bottom', 1.8rem);
         // @include rem('font-size', 3.6rem );
         position:relative;
         z-index: 2;
@@ -136,6 +144,10 @@ html, body {
     @include rem('padding-left', 0 );
     @include rem('margin', 2.4rem 0 );
     list-style-type:  none;
+
+    @include at-breakpoint($bp3) {
+      @include rem('margin', 2.4rem 0 );
+    }
     li{
         @include rem('line-height', 2.4rem);
     }
@@ -196,6 +208,19 @@ html, body {
         @include transition(transform 1.4s 0.8s $anim-slidedown, opacity 1.4s 0.8s ease-in);
       }
    }
+}
+
+.status {
+    &.mod-list {
+      .csstransforms & {
+        @include transition(transform 1.4s 1.4s $anim-slidedown, opacity 1.4s 1.4s ease-in);
+      }
+   }
+
+}
+
+.status-tag {
+    @include rem('margin-bottom', 1rem)
 }
 
 // ---------------------------------------------------------------------------
@@ -495,6 +520,10 @@ span.post-meta-tag {
 
     .icon {
        @include rem('font-size', 2.2rem);
+    }
+    .icon-tag {
+      position: relative;
+      top: 2px;
     }
   }
 }
