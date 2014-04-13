@@ -50,15 +50,14 @@ $(document).ready(function() {
     // Codeivate
    
     var breakStatus = [
-    'Taking a break.',
+    'Taking a break from coding.',
     'Grabbing some coffee.', 
     'afk.', 
-    'Gaming.',
-    'Watching TV.'
+    'Currently not coding anything :('
     ];
 
     var programmingStatus = [
-    'Is programming right now in ',
+    'Is coding right now in ',
     'Coding up a storm in ',
     'Saving lives using ',
     'Coding this instant in ',
