@@ -120,6 +120,10 @@ html, body {
                 color: $secondary-alt-2;
             }
         }
+        .link-line span:before {
+            background: $secondary-alt-2; 
+            height: 1px;
+        }
     }
 
    .icon{
@@ -350,10 +354,11 @@ ul.bubble-list {
         }
 
     }
-    hr {
-        @include rem('margin-top', 1.5rem);
-        border-color: $text-light;
-    }
+}
+
+hr {
+    @include rem('margin-top', 1.5rem);
+    border-color: $text-light;
 }
 
 .post-item-excerpt{
@@ -507,9 +512,11 @@ span.post-meta-tag {
 .post-single {}
 
 .post-header {
-  @include rem('padding', 15rem 0 );
+  @include rem('padding', 20rem 0 );
   background: $secondary-alt;
   .post-title {
+    @include rem('font-size', 8.4rem);
+    @include bebus-book;
     text-align: center;
     color: $post-title  ;
     margin-bottom: 0;
@@ -526,7 +533,7 @@ span.post-meta-tag {
     .icon {
        @include rem('font-size', 2.2rem);
     }
-    .icon-tag {
+    .icon-tag, .icon-clock {
       position: relative;
       top: 2px;
     }
@@ -560,7 +567,7 @@ code{
 blockquote {
     background: $secondary-alt-2;
     border-left: 10px solid $primary;;
-    margin: 1.5em 10px;
+    margin: 2.5em 10px;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
 }
@@ -581,29 +588,39 @@ blockquote p {
 .post-content {
 
   a {
+    display: inline-block;
     color: $primary;
     line-height: 1;
     position: relative;
+    border-bottom: 2px solid transparent;
+    @include transition(border 0.2s);
+    &:hover {
+        border-bottom-color: $primary;
+    }
 
-      &:after {
-          position: absolute;
-          content: "";
-          width: 0;
-          height: 2px;
-          bottom: 0;
-          background: $primary;
-          display: block;
-          @include single-transition(width 2s);
-      }
-      &:hover {
-          &:after {
-              width: 100%;
-          }
-      }
+      // &:after {
+      //     position: absolute;
+      //     content: "";
+      //     width: 0;
+      //     height: 2px;
+      //     bottom: 0;
+      //     background: $primary;
+      //     display: block;
+      //     @include single-transition(width 2s);
+      // }
+      // &:hover {
+      //     &:after {
+      //         width: 100%;
+      //     }
+      // }
   }
 
   p {
     @include rem('margin-bottom', 4rem);
+  }
+
+  em {
+    @include fira-italic;
   }
 
 }

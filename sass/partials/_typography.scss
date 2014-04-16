@@ -63,6 +63,18 @@ $ff-serif:      Georgia, Times, serif;
 }
 
 @font-face {
+    font-family: 'fira_sans_otitalic';
+    src: url('../fonts/firasansot-regularitalic-webfont.eot');
+    src: url('../fonts/firasansot-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/firasansot-regularitalic-webfont.woff') format('woff'),
+         url('../fonts/firasansot-regularitalic-webfont.ttf') format('truetype'),
+         url('../fonts/firasansot-regularitalic-webfont.svg#fira_sans_otitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
     font-family: 'fira_sans_mono';
     src: url('../fonts/FiraMono-Regular.eot');
     src: url('../fonts/FiraMono-Regular.eot?#iefix') format('embedded-opentype'),
@@ -71,6 +83,8 @@ $ff-serif:      Georgia, Times, serif;
     font-weight: normal;
     font-style: normal;
 }
+
+
 
 
 // Font Mixins
@@ -95,6 +109,10 @@ $ff-serif:      Georgia, Times, serif;
     line-height: 1;
 }
 
+@mixin fira-italic {
+    font-family: 'fira_sans_otitalic', $ff-sans;
+    line-height: 1;
+}
 @mixin fira-mono {
     font-family: 'fira_sans_mono', $ff-sans;
 }
