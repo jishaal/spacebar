@@ -6,7 +6,6 @@
     "susy": "~1.0.9",
     "normalize.scss": "latest",
     "modernizr": "latest",
-    "syntax.css": "latest",
     "scrollReveal.js": "~0.1.2"
   },
   "ignore": [

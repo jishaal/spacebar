@@ -54,9 +54,10 @@ $ff-serif:      Georgia, Times, serif;
     font-family: 'fira_sans_otregular';
     src: url('../fonts/firasansot-regular-webfont.eot');
     src: url('../fonts/firasansot-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg')
          url('../fonts/firasansot-regular-webfont.woff') format('woff'),
-         url('../fonts/firasansot-regular-webfont.ttf') format('truetype'),
-         url('../fonts/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg');
+         url('../fonts/firasansot-regular-webfont.ttf') format('truetype');
+         
     font-weight: normal;
     font-style: normal;
 

@@ -559,9 +559,20 @@ code{
     @include fira-mono;
     @include border-radius(0.5rem);
     @include rem('font-size', 2rem );
-    padding: 0.2em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
     background: $secondary-alt-2;
     color: white;
+}
+
+.highlight {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  code {
+    @include rem('font-size', 1.6rem );
+    line-height: 1.5;
+  }
 }
 
 blockquote {
@@ -570,6 +581,9 @@ blockquote {
     margin: 2.5em 10px;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
 }
 blockquote:before {
     color: #ccc;
@@ -591,10 +605,11 @@ blockquote p {
     color: $primary;
     line-height: 1;
     position: relative;
-    border-bottom: 2px solid transparent;
+    //border-bottom: 2px solid transparent;
     @include transition(border 0.2s);
     &:hover {
-        border-bottom-color: $primary;
+        //border-bottom-color: $primary;
+        text-decoration: underline;
     }
 
       // &:after {
@@ -620,6 +635,17 @@ blockquote p {
 
   em {
     @include fira-italic;
+  }
+
+  img {
+    @include rem('margin-top', 5rem);
+    @include rem('margin-bottom', 5rem);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 900px; 
+    width: 100%;
   }
 
 }
