@@ -113,6 +113,7 @@ $ff-serif:      Georgia, Times, serif;
 @mixin fira-italic {
     font-family: 'fira_sans_otitalic', $ff-sans;
     line-height: 1;
+    font-style: normal;
 }
 @mixin fira-mono {
     font-family: 'fira_sans_mono', $ff-sans;
