@@ -56,6 +56,14 @@ module.exports = function(grunt) {
 		    	files: [
 		          { expand: true, cwd: 'js/', src: '**', dest: '_site/js' }
 		        ]
+
+		    },
+		    jsplugins: {
+		    	files: [
+		    	  { expand: true, cwd: 'bower_components/jquery/dist/', src:'jquery.min.js', dest: 'js/thirdparty'},
+		    	  { expand: true, cwd: 'bower_components/scrollReveal.js/', src:'scrollReveal.js', dest: 'js/thirdparty'}
+		        ]
+
 		    },
 	      	img: {
 	        	files: [
@@ -113,7 +121,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-exec');
 
-	grunt.registerTask('default', ['connect', 'compass','modernizr', 'exec:build', 'watch']);
+	grunt.registerTask('default', ['connect', 'compass','modernizr', 'exec:build', 'copy:jsplugins', 'watch']);
 
 	grunt.registerTask('mod', ['modernizr']);
 	

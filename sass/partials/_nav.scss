@@ -277,7 +277,7 @@ nav {
 				// 	@include rem('height',9.4rem);
 				// }
 				@include rem('font-size', 2.8rem);
-				@include single-transition(height, 0.3s);
+				@include single-transition(all, 0.15s ease-in-out);
 				border-bottom: 5px solid $bg;
 
 				.no-touch & {
