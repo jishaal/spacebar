@@ -74,6 +74,17 @@ html, body {
    }
 }
 
+/* iPads (portrait) ----------- */
+@media only screen  
+and (max-device-width : 480px) 
+and (orientation : portrait) {
+  .home-intro {
+    min-height: 380px;
+    height: 88vh;
+  }
+  /* Styles */
+}
+
 .widget-area {
     @include cfix;
     @include rem('padding-top', 6rem);
@@ -104,17 +115,22 @@ html, body {
         color: $text-dark;
     }
     .title {
-        // @include bebus-book;
-        @include rem('margin-bottom', 1.8rem);
-        color: $secondary;
+        @include bebus-reg;
+        @include rem('margin-bottom', 3rem);
+        color: $secondary-alt;
         // @include rem('font-size', 3.6rem );
         position:relative;
         z-index: 2;
         background: $bg;
         // margin-top: 0;
         letter-spacing: 0.0625rem;
+        border-bottom: 3px solid;
+        @include at-breakpoint($bp3){
+          border-bottom: 5px solid;
+        }
+        line-height: 1.1;
         a {
-            @include transition(color 0.3s);
+            @include transition(color 0.6s);
             color: $secondary-alt;
             &:hover, &:focus {
                 color: $secondary-alt-2;
@@ -122,7 +138,7 @@ html, body {
         }
         .link-line span:before {
             background: $secondary-alt-2; 
-            height: 1px;
+            height: 4px;
         }
     }
 
@@ -237,11 +253,18 @@ html, body {
      @include rem('padding-bottom', 8rem);
     // @include bleed(3);
     p {
-        color: $primary;
+        color: $text-dark;
+         @include rem('padding-top', 2rem);
     }
 
     .title {
-       color: $secondary;
+      @include bebus-reg;
+      color: $secondary-alt;
+      line-height: 1.1;
+      border-bottom: 3px solid;
+        @include at-breakpoint($bp3){
+          border-bottom: 5px solid;
+        }
     }
 }
 
@@ -337,8 +360,8 @@ ul.bubble-list {
         color: $secondary-alt;
     }
     .post-title {
-        @include fira-reg;
-        @include rem('font-size', 4.2rem );
+        @include bebus-reg;
+        @include rem('font-size', 6.4rem );
         @include rem('padding-left', 2.5rem);
         line-height: 1.2;
         margin-bottom: 0;
@@ -515,8 +538,8 @@ span.post-meta-tag {
   @include rem('padding', 20rem 0 );
   background: $secondary-alt;
   .post-title {
-    @include rem('font-size', 8.4rem);
-    @include bebus-book;
+    @include rem('font-size', 8.2rem);
+    @include bebus-reg;
     text-align: center;
     color: $post-title  ;
     margin-bottom: 0;

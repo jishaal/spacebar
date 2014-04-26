@@ -144,7 +144,7 @@ nav {
 		.nav-main {
 			$anim1: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 			$anim2: cubic-bezier(.694,.0482,.335,1);
-			@include translate(0, -100%);
+			@include translate(0, -120%);
 			@include transition(all 400ms $anim2);
 			@include transition-timing-function($anim2);
 			position: absolute;			

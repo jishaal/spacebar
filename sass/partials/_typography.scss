@@ -54,9 +54,9 @@ $ff-serif:      Georgia, Times, serif;
     font-family: 'fira_sans_otregular';
     src: url('../fonts/firasansot-regular-webfont.eot');
     src: url('../fonts/firasansot-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg')
          url('../fonts/firasansot-regular-webfont.woff') format('woff'),
-         url('../fonts/firasansot-regular-webfont.ttf') format('truetype');
+         url('../fonts/firasansot-regular-webfont.ttf') format('truetype')
+         url('../fonts/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg');
          
     font-weight: normal;
     font-style: normal;
@@ -122,27 +122,26 @@ $ff-serif:      Georgia, Times, serif;
 
 h1, h2, h3,
 h4, h5, h6 {
-    @include fira-reg;
+    @include bebus-reg;
     text-rendering: optimizeLegibility;
     line-height: 1.2;
     margin-top: 0;
-    @include fira-reg;
     color: $secondary-alt;
 }
 
 h1 { 
-    @include rem('font-size', 4.8rem);
-    @include rem('margin-bottom', 3.2rem);
+    @include rem('font-size', 5.8rem);
+    @include rem('margin-bottom', 2.8rem);
 }
 h2 { 
-    @include rem('font-size', 3.8rem);
-    @include rem('margin-bottom', 3.1rem);
-    color: $secondary-alt-2;
+    @include rem('font-size', 5rem);
+    @include rem('margin-bottom', 2.2rem);
+    color: $secondary-alt;
 }
 h3 { 
-    @include rem('font-size', 3.2rem);
-    @include rem('margin-bottom', 3.2rem);
-    color: $secondary-alt-2;
+    @include rem('font-size', 4.2rem);
+    @include rem('margin-bottom', 2.2rem);
+    color: $secondary-alt;
 }
 h4 { 
     @include rem('font-size', 2.8rem);
@@ -185,11 +184,13 @@ a{
         bottom: 1px;
         background: $text-light;
         display: block;
-        @include transition(width 0.6s);
+        @include transition(all 0.6s);
+        opacity: 0;
     }
     &:hover {
         span:before {
             width: 100%;
+            opacity: 1;
         }
     }
 }

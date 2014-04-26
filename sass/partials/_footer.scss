@@ -6,13 +6,11 @@ $sticky-height: 360px;
 
 .footer{
 	background: $primary;
-	@media screen and (max-width: 46rem ) {
-		height: 450px;
-	}
 }
 .footer-content {
 	@include rem('padding', 2rem 0);
 	@include cfix;
+	background: $primary;
 }
 
 .about-block {
@@ -22,6 +20,9 @@ $sticky-height: 360px;
 		float: left;
 	}
 	h2 {
+		@include bebus-reg;
+		@include rem('font-size', 6.4rem);
+		@include rem('margin-bottom', 1rem);
 		color: $text-light;
 	}
 	p {

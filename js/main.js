@@ -51,9 +51,9 @@ $(document).ready(function() {
    
     var breakStatus = [
     'Taking a break from coding.',
-    'Grabbing some coffee.', 
+    'Probably grabbing some coffee.', 
     'afk.', 
-    'Currently not coding anything :('
+    'Currently not coding :('
     ];
 
     var programmingStatus = [
