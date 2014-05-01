@@ -29,7 +29,7 @@ html, body {
    @include rem('padding-bottom', 8rem);
    @include cfix;
    background: $secondary-alt;
-    h1{
+    .main-title{
         @include bebus-light;
         @include rem('font-size', 6.8rem );
         line-height: 1.2;        
@@ -582,7 +582,7 @@ code{
     @include fira-mono;
     @include border-radius(0.5rem);
     @include rem('font-size', 2rem );
-    @include rem('padding', 0.5rem );
+    padding: 1px 5px;
     line-height: 1;
     // padding-left: 0.2em;
     // padding-right: 0.2em;
