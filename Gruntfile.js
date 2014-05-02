@@ -110,6 +110,14 @@ module.exports = function(grunt) {
 					livereload: true
 				}
 			}
+		},
+
+		favicons: {
+		    options: {},
+		    icons: {
+		      src: 'images/favicon.png',
+		      dest: 'images/touch-icons'
+		    }
 		}
 	});
 
@@ -120,10 +128,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-exec');
+	grunt.loadNpmTasks('grunt-favicons');
 
 	grunt.registerTask('default', ['connect', 'compass','modernizr', 'exec:build', 'copy:jsplugins', 'watch']);
 
 	grunt.registerTask('mod', ['modernizr']);
+
+	grunt.registerTask('icons', ['favicons']);
 	
 
 };

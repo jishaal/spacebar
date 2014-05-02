@@ -74,16 +74,16 @@ html, body {
    }
 }
 
-/* iPads (portrait) ----------- */
-@media only screen  
-and (max-device-width : 480px) 
-and (orientation : portrait) {
-  .home-intro {
-    min-height: 380px;
-    height: 88vh;
-  }
-  /* Styles */
-}
+// /* iPads (portrait) ----------- */
+// @media only screen  
+// and (max-device-width : 480px) 
+// and (orientation : portrait) {
+//   .home-intro {
+//     min-height: 380px;
+//     height: 88vh;
+//   }
+//   /* Styles */
+// }
 
 .widget-area {
     @include cfix;
@@ -529,7 +529,7 @@ span.post-meta-tag {
    ========================================================================== */
 
 .post-wrap {
-    @include rem('margin-top', 6rem );
+    @include rem('margin-top', 5rem );
 }
 
 .post-single {}
@@ -538,8 +538,8 @@ span.post-meta-tag {
   @include rem('padding', 20rem 0 );
   background: $secondary-alt;
   .post-title {
-    @include rem('font-size', 8.2rem);
-    @include bebus-reg;
+    @include rem('font-size', 8.4rem);
+    @include bebus-book;
     text-align: center;
     color: $post-title  ;
     margin-bottom: 0;
