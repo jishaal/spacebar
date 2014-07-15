@@ -122,7 +122,7 @@ $ff-serif:      Georgia, Times, serif;
 
 h1, h2, h3,
 h4, h5, h6 {
-    @include bebus-reg;
+    @include fira-reg;
     text-rendering: optimizeLegibility;
     line-height: 1.2;
     margin-top: 0;
@@ -135,7 +135,7 @@ h1 {
     @include rem('margin-bottom', 2.8rem);
 }
 h2 { 
-    @include rem('font-size', 5rem);
+    @include rem('font-size', 4.8rem);
     @include rem('margin-bottom', 2.2rem);
     color: $secondary-alt;
 }
@@ -183,6 +183,8 @@ a{
         width: 0;
         height: 2px;
         bottom: 1px;
+        left: 0;
+        right: 0;
         background: $text-light;
         display: block;
         @include transition(all 0.6s);

@@ -536,14 +536,38 @@ span.post-meta-tag {
 
 .post-header {
   @include rem('padding', 20rem 0 );
+  position: relative;
   background: $secondary-alt;
+  background-size: cover;
+    &:after {
+      @include background-image(linear-gradient(rgba(0,0,0,0), rgba(#952F11,0.5)));
+      position: absolute;
+      content: "";
+      width: 100%;
+      top:0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      //background: $primary;
+      display: block;
+      z-index: 2;
+
+    } 
+
   .post-title {
     @include rem('font-size', 8.4rem);
     @include bebus-book;
+    //position: relative;
+    z-index: 3;
     text-align: center;
-    color: $post-title  ;
+    color: #FFF;
     margin-bottom: 0;
+    text-shadow: 3px 4px 13px #000;
+    position:relative;
+    z-index: 5;
+     
   }
+
 }
 
 .post-single {
@@ -574,8 +598,8 @@ span.post-meta-tag {
 ul, ol {
    @include fira-reg;
    @include rem('font-size', 2.2rem );
-   color: $primary;
-
+   color: $secondary-alt-2;  
+   ///max-width: 800px;
 }
 
 code{
@@ -626,6 +650,12 @@ blockquote p {
 
 .post-content {
 
+  ul li {
+    @include rem('margin-bottom', 2rem );
+    line-height: 1.5;
+
+  }
+
   a {
     color: $primary;
     line-height: 1;
@@ -672,6 +702,13 @@ blockquote p {
     max-width: 900px; 
     width: 100%;
   }
+
+}
+
+.code-single {
+  display: block;
+  text-align: center;
+  @include rem('margin', 3rem 0);
 
 }
 
@@ -729,3 +766,18 @@ blockquote p {
 
   }
 }
+
+#disqus_thread {
+  @include rem('margin-bottom', 5rem );
+
+  p {
+    color: $primary;
+  }
+  
+
+}
+
+.active .publisher-nav-color::after {
+    background: $primary;
+  }
+
