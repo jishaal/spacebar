@@ -540,7 +540,7 @@ span.post-meta-tag {
   background: $secondary-alt;
   background-size: cover;
     &:after {
-      @include background-image(linear-gradient(rgba(0,0,0,0), rgba(#952F11,0.5)));
+      @include background-image(linear-gradient(rgba(0,0,0,0) 20%, rgba(#952F11,0.4)));
       position: absolute;
       content: "";
       width: 100%;
@@ -650,10 +650,12 @@ blockquote p {
 
 .post-content {
 
-  ul li {
-    @include rem('margin-bottom', 2rem );
-    line-height: 1.5;
-
+  ul {
+    margin-top: 0;
+    li {
+     margin-bottom: 0;
+      line-height: 1.5;
+    }
   }
 
   a {
@@ -666,26 +668,14 @@ blockquote p {
         //border-bottom-color: $primary;
         text-decoration: underline;
     }
-
-      // &:after {
-      //     position: absolute;
-      //     content: "";
-      //     width: 0;
-      //     height: 2px;
-      //     bottom: 0;
-      //     background: $primary;
-      //     display: block;
-      //     @include single-transition(width 2s);
-      // }
-      // &:hover {
-      //     &:after {
-      //         width: 100%;
-      //     }
-      // }
   }
 
   p {
     @include rem('margin-bottom', 4rem);
+
+    + ul, + ol {
+       @include rem('margin-top', -2.5rem );
+    }
   }
 
   em {
