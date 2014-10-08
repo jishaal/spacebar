@@ -49,39 +49,39 @@ $(document).ready(function() {
     // ---------------------------------------------------------------------------
     // Codeivate
    
-    var breakStatus = [
-    'Taking a break from coding.',
-    'Probably grabbing some coffee.', 
-    'afk.', 
-    'Currently not coding :('
-    ];
+    // var breakStatus = [
+    // 'Taking a break from coding.',
+    // 'Probably grabbing some coffee.', 
+    // 'afk.', 
+    // 'Currently not coding :('
+    // ];
 
-    var programmingStatus = [
-    'Is coding right now in ',
-    'Coding up a storm in ',
-    'Saving lives using ',
-    'Coding this instant in ',
-    'Crafting the next best thing using '
-    ];
+    // var programmingStatus = [
+    // 'Is coding right now in ',
+    // 'Coding up a storm in ',
+    // 'Saving lives using ',
+    // 'Coding this instant in ',
+    // 'Crafting the next best thing using '
+    // ];
 
-    var randomNum = Math.floor((Math.random() * 10000));
-    var breakStatusSelect = randomNum % breakStatus.length,
-        programmingStatusSelect = randomNum % programmingStatus.length;
+    // var randomNum = Math.floor((Math.random() * 10000));
+    // var breakStatusSelect = randomNum % breakStatus.length,
+    //     programmingStatusSelect = randomNum % programmingStatus.length;
 
-    $.getJSON('http://codeivate.com/users/jishaal.json?callback=?', function data(data) {
-        var status;
-        //console.dir(data);
-        $('#name').html(data.name);
+    // $.getJSON('http://codeivate.com/users/jishaal.json?callback=?', function data(data) {
+    //     var status;
+    //     //console.dir(data);
+    //     $('#name').html(data.name);
 
-        if(data.programming_now) {
-          status = programmingStatus[programmingStatusSelect];
-          status += '<strong>'+ data.current_language + "</strong>.";
-        } else {
-          status = breakStatus[breakStatusSelect];
-        }
-        $('.status-tag-codeivate a').html(status);
+    //     if(data.programming_now) {
+    //       status = programmingStatus[programmingStatusSelect];
+    //       status += '<strong>'+ data.current_language + "</strong>.";
+    //     } else {
+    //       status = breakStatus[breakStatusSelect];
+    //     }
+    //     $('.status-tag-codeivate a').html(status);
             
-    });
+    // });
 
 
     // ---------------------------------------------------------------------------
@@ -90,15 +90,21 @@ $(document).ready(function() {
     $.get('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=j-dawg-bo&api_key=9d92732638e517cb06c246ca143e766e&format=json', function(data) {
         //console.dir(data);
 
-        var isPlaying = data.recenttracks.track[0]['@attr'];
-        var lastfmTag = $('.status-tag-lastfm a');
-
+        var isPlaying = data.recenttracks.track[0]['@attr'],
+            lastfmTag = $('.status-tag-lastfm a'),
+            playText = '';
+        
         if(isPlaying) {
-            var songName = data.recenttracks.track[0].name,
-                songArtist = data.recenttracks.track[0].artist['#text'],
-                status = "Listening to <strong>" + songName + '</strong> by <strong>' +songArtist + '</strong> on Spotify';
-            lastfmTag.html(status);
+            playText = "Currently listening to ";
+        }else {
+            playText = "Last listened to "; 
         }
+
+        var songName = data.recenttracks.track[0].name,
+            songArtist = data.recenttracks.track[0].artist['#text'],
+            status = playText + "<strong>" + songName + '</strong> by <strong>' +songArtist + '</strong> on Spotify';
+
+        lastfmTag.html(status);
     }); 
   
 });
