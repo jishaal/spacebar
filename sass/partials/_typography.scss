@@ -44,19 +44,17 @@ $ff-serif:      Georgia, Times, serif;
     src: url('../fonts/FiraSans-Light.eot');
     src: url('../fonts/FiraSans-Light.eot?#iefix') format('embedded-opentype'),
          url('../fonts/FiraSans-Light.woff') format('woff'),
-         url('../fonts/firasansot-light-webfont.ttf') format('truetype'),
-         url('../fonts/firasansot-light-webfont.svg#fira_sans_otlight') format('svg');
+         url('../fonts/FiraSans-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'fira_sans_otregular';
-    src: url('../fonts/firasansot-regular-webfont.eot');
-    src: url('../fonts/firasansot-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/firasansot-regular-webfont.woff') format('woff'),
-         url('../fonts/firasansot-regular-webfont.ttf') format('truetype')
-         url('../fonts/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg');
+    src: url('../fonts/FiraSans-Regular.eot');
+    src: url('../fonts/FiraSans-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FiraSans-Regular.woff') format('woff'),
+         url('../fonts/FiraSans-Regular.ttf') format('truetype');
          
     font-weight: normal;
     font-style: normal;
@@ -65,11 +63,10 @@ $ff-serif:      Georgia, Times, serif;
 
 @font-face {
     font-family: 'fira_sans_otitalic';
-    src: url('../fonts/firasansot-regularitalic-webfont.eot');
-    src: url('../fonts/firasansot-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/firasansot-regularitalic-webfont.woff') format('woff'),
-         url('../fonts/firasansot-regularitalic-webfont.ttf') format('truetype'),
-         url('../fonts/firasansot-regularitalic-webfont.svg#fira_sans_otitalic') format('svg');
+    src: url('../fonts/FiraSans-Italic.eot');
+    src: url('../fonts/FiraSans-Italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FiraSans-Italic.woff') format('woff'),
+         url('../fonts/FiraSans-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 

@@ -216,6 +216,12 @@ html, body {
         padding-right: 0;
         color: $text-dark;      
         line-height: 1.2;
+
+        img {
+          @include rem('width', 1.9rem );
+          position: relative;
+          top: -3px;
+        }
    }
    a{
         display: inline;
