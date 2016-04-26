@@ -5,9 +5,10 @@ $ff-serif:      Georgia, Times, serif;
     font-family: 'bebas_neuebook';
     src: url('../fonts/bebasneue_book-webfont.eot');
     src: url('../fonts/bebasneue_book-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bebasneue_book-webfont.svg#bebas_neuebook') format('svg'),
          url('../fonts/bebasneue_book-webfont.woff') format('woff'),
-         url('../fonts/bebasneue_book-webfont.ttf') format('truetype'),
-         url('../fonts/bebasneue_book-webfont.svg#bebas_neuebook') format('svg');
+         url('../fonts/bebasneue_book-webfont.ttf') format('truetype');
+        
     font-weight: normal;
     font-style: normal;
 }
@@ -17,9 +18,10 @@ $ff-serif:      Georgia, Times, serif;
     font-family: 'bebas_neuelight';
     src: url('../fonts/bebasneue_light-webfont.eot');
     src: url('../fonts/bebasneue_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue_light-webfont.svg#bebas_neuelight') format('svg'),
          url('../fonts/bebasneue_light-webfont.woff') format('woff'),
-         url('../fonts/bebasneue_light-webfont.ttf') format('truetype'),
-         url('../fonts/bebasneue_light-webfont.svg#bebas_neuelight') format('svg');   
+         url('../fonts/bebasneue_light-webfont.ttf') format('truetype');
+          
     font-weight: normal;
     font-style: normal;
 }
@@ -29,31 +31,42 @@ $ff-serif:      Georgia, Times, serif;
     font-family: 'bebas_neue_regular';
     src: url('../fonts/bebasneue_regular-webfont.eot');
     src: url('../fonts/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/bebasneue_regular-webfont.svg#bebas_neue_regularregular') format('svg'),
          url('../fonts/bebasneue_regular-webfont.woff') format('woff'),
-         url('../fonts/bebasneue_regular-webfont.ttf') format('truetype'),
-          url('../fonts/bebasneue_regular-webfont.svg#bebas_neue_regularregular') format('svg');
+         url('../fonts/bebasneue_regular-webfont.ttf') format('truetype');
+         
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'fira_sans_otlight';
-    src: url('../fonts/firasansot-light-webfont.eot');
-    src: url('../fonts/firasansot-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/firasansot-light-webfont.woff') format('woff'),
-         url('../fonts/firasansot-light-webfont.ttf') format('truetype'),
-         url('../fonts/firasansot-light-webfont.svg#fira_sans_otlight') format('svg');
+    src: url('../fonts/FiraSans-Light.eot');
+    src: url('../fonts/FiraSans-Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FiraSans-Light.woff') format('woff'),
+         url('../fonts/FiraSans-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'fira_sans_otregular';
-    src: url('../fonts/firasansot-regular-webfont.eot');
-    src: url('../fonts/firasansot-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/firasansot-regular-webfont.woff') format('woff'),
-         url('../fonts/firasansot-regular-webfont.ttf') format('truetype'),
-         url('../fonts/firasansot-regular-webfont.svg#fira_sans_otregular') format('svg');
+    src: url('../fonts/FiraSans-Regular.eot');
+    src: url('../fonts/FiraSans-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FiraSans-Regular.woff') format('woff'),
+         url('../fonts/FiraSans-Regular.ttf') format('truetype');
+         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'fira_sans_otitalic';
+    src: url('../fonts/FiraSans-Italic.eot');
+    src: url('../fonts/FiraSans-Italic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FiraSans-Italic.woff') format('woff'),
+         url('../fonts/FiraSans-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -68,6 +81,8 @@ $ff-serif:      Georgia, Times, serif;
     font-weight: normal;
     font-style: normal;
 }
+
+
 
 
 // Font Mixins
@@ -89,8 +104,14 @@ $ff-serif:      Georgia, Times, serif;
 
 @mixin fira-reg {
     font-family: 'fira_sans_otregular', $ff-sans;
+    line-height: 1;
 }
 
+@mixin fira-italic {
+    font-family: 'fira_sans_otitalic', $ff-sans;
+    line-height: 1;
+    font-style: normal;
+}
 @mixin fira-mono {
     font-family: 'fira_sans_mono', $ff-sans;
 }
@@ -102,19 +123,23 @@ h4, h5, h6 {
     text-rendering: optimizeLegibility;
     line-height: 1.2;
     margin-top: 0;
-    @include fira-reg;
     color: $secondary-alt;
+    font-weight: normal;
 }
 
 h1 { 
-    @include rem('font-size', 4.8rem);
+    @include rem('font-size', 5.8rem);
+    @include rem('margin-bottom', 2.8rem);
 }
 h2 { 
-    @include rem('font-size', 3.8rem);
-    color: $secondary;
+    @include rem('font-size', 4.8rem);
+    @include rem('margin-bottom', 2.2rem);
+    color: $secondary-alt;
 }
 h3 { 
-    @include rem('font-size', 3.2rem);
+    @include rem('font-size', 4.2rem);
+    @include rem('margin-bottom', 2.2rem);
+    color: $secondary-alt;
 }
 h4 { 
     @include rem('font-size', 2.8rem);
@@ -127,7 +152,7 @@ h6 {
 }
 p{
     @include fira-reg;
-    @include rem('font-size', 2.4rem);
+    @include rem('font-size', 2.2rem);
     @include rem('margin', 0 0 2.6rem 0);
     line-height: 1.5;
     color: $secondary-alt-2;
@@ -146,9 +171,46 @@ a{
     -webkit-tap-highlight-color: rgba(255,255,255, 0);
 }
 
+.link-line {
+    position: relative;
+
+    span:before {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 2px;
+        bottom: 1px;
+        left: 0;
+        right: 0;
+        background: $text-light;
+        display: block;
+        @include transition(all 0.6s);
+        opacity: 0;
+    }
+    &:hover {
+        span:before {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+}
+
 // h2 + p {
 //     @include rem('margin', 2rem 0 3rem 0);
 // }
+
+ .title{ 
+    @include bebus-light;
+    @include rem('font-size', 6.4rem);
+    letter-spacing: 0.0625rem;       
+    margin-top: 0;
+    .icon{
+        @include rem('font-size', 4.8rem);
+        position: relative;
+        top: -3px;
+        color: $secondary-alt-2;
+    }
+}
 
 
 
@@ -164,11 +226,11 @@ a{
 
 @font-face {
     font-family: 'icomoon';
-    src:url('../fonts/icomoon.eot?-fqqdwx');
-    src:url('../fonts/icomoon.eot?#iefix-fqqdwx') format('embedded-opentype'),
-        url('../fonts/icomoon.woff?-fqqdwx') format('woff'),
-        url('../fonts/icomoon.ttf?-fqqdwx') format('truetype'),
-        url('../fonts/icomoon.svg?-fqqdwx#icomoon') format('svg');
+    src:url('../fonts/icomoon.eot?-sbrsr4');
+    src:url('../fonts/icomoon.eot?#iefix-sbrsr4') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?-sbrsr4') format('woff'),
+        url('../fonts/icomoon.ttf?-sbrsr4') format('truetype'),
+        url('../fonts/icomoon.svg?-sbrsr4#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -187,7 +249,12 @@ a{
     -moz-osx-font-smoothing: grayscale;
 }
 
-
+.icon-facebook:before {
+    content: "\e600";
+}
+.icon-linkedin:before {
+    content: "\e602";
+}
 .icon-double-angle-left:before {
     content: "\e608";
 }
@@ -200,20 +267,14 @@ a{
 .icon-angle-right:before {
     content: "\e60a";
 }
-.icon-calendar:before {
-    content: "\e60b";
-}
 .icon-tag:before {
     content: "\e60c";
 }
-.icon-linkedin:before {
-    content: "\e600";
+.icon-clock:before {
+    content: "\e60d";
 }
-.icon-twitter:before {
-    content: "\e602";
-}
-.icon-facebook:before {
-    content: "\e604";
+.icon-calendar:before {
+    content: "\e60b";
 }
 .icon-lastfm:before {
     content: "\e603";
@@ -221,14 +282,11 @@ a{
 .icon-lab:before {
     content: "\e605";
 }
-.icon-twitter2:before {
+.icon-twitter:before {
     content: "\e606";
 }
 .icon-quill:before {
     content: "\e607";
-}
-.icon-clock:before {
-    content: "\e60d";
 }
 
 

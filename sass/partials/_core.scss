@@ -1,6 +1,7 @@
 body {
     background: $bg;
     text-rendering: optimizeLegibility;
+    // background: url(../images/crossword.png) repeat;
 }
 
 html, body {
@@ -9,8 +10,13 @@ html, body {
 }
 
 .page-wrap {
-    @include rem('padding-top', 6rem);
+    // @include rem('padding-top', 6rem);
     @include rem('margin-bottom', 6rem);
+}
+
+.standard-page {
+    @include rem('padding-bottom', 8rem);
+    @include rem('min-height', 60rem);
 }
 
 
@@ -19,19 +25,21 @@ html, body {
    ========================================================================== */
 
 .home-intro{
-   @include rem('margin-bottom', 5.5rem);
-    h1{
+   @include rem('padding-top', 8rem);
+   @include rem('padding-bottom', 8rem);
+   @include cfix;
+   background: $secondary-alt;
+    .main-title{
         @include bebus-light;
-        @include rem('font-size', 5.8rem );
-        @include rem('margin-bottom', 4rem);
-        line-height: 1.2;
-        color: $secondary-alt;
+        @include rem('font-size', 6.8rem );
+        line-height: 1.2;        
         letter-spacing: 0.03125em;
+        
+        color: $bg;
         span{
             @include bebus-book;
-            color: $text-dark;
+            color: $text-light;           
         }
-
         @include at-breakpoint($bp2) {
           @include rem('font-size', 8.4rem );
         }
@@ -42,7 +50,9 @@ html, body {
    }
 
    p {
+      color: $post-title;
       clear: both;
+      margin-bottom: 0;
    }
 
    @include at-breakpoint($bp3) {
@@ -51,90 +61,167 @@ html, body {
 
    @include at-breakpoint($bp2) {
       h1{
-         @include span-columns(8,12);
-         @include suffix(1);
+         //@include span-columns(5,12);
+         //@include suffix(1);
       }
 
-      .face{
-        display: block;
-        @include span-columns(4 omega,12);
-        position: relative;
-        @include rem('top', 8rem);
-        @include rem('right', 2rem);
-        // @include suffix(1); 
-      }
+      // .face{
+      //   display: block;
+      //   position: relative;
+      //   @include span-columns(4 omega,12);        
+      //   @include rem('right', 2rem);
+      // }
    }
 }
 
+// /* iPads (portrait) ----------- */
+// @media only screen  
+// and (max-device-width : 480px) 
+// and (orientation : portrait) {
+//   .home-intro {
+//     min-height: 380px;
+//     height: 88vh;
+//   }
+//   /* Styles */
+// }
+
 .widget-area {
-   @include cfix;
-   @include rem('margin-bottom', 4rem);
+    @include cfix;
+    @include rem('padding-top', 6rem);
+    // @include rem('padding-bottom', 6rem);
+    &.tweets-loaded ul.mod-list {
+        @include translate(0, 0);
+        opacity: 1;
+    }
 }
 
 .box-widget {
-    background: $primary;
-    @include rem('padding', 2rem);
+    position: relative;
+    overflow: hidden;
     @include rem('margin-bottom', 2rem);
-    @include rem('min-height', 25rem);
-    @include at-breakpoint($bp3) {
-        @include span-columns(5,10);
-        @include rem('min-height', 30rem);
-        &:last-child{
-            @include omega;
-        }
-    }
 
+    @include at-breakpoint($bp3) {
+        @include span-columns(5,15);
+        @include rem('margin-bottom', 3rem);
+        @include rem('min-height', 41rem);
+        @include rem('padding-right', 3rem );
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+    }
+    .status-tag {
+        color: $text-dark;
+    }
     .title {
         @include bebus-reg;
-        @include rem('margin-bottom', 1.8rem);
-        @include rem('font-size', 3.8rem );
-        color: $white;
-        margin-top: 0;
-        //text-shadow: 1px 1px 1px rgb(173,25,25);
+        @include rem('margin-bottom', 3rem);
+        color: $secondary-alt;
+        // @include rem('font-size', 3.6rem );
+        position:relative;
+        z-index: 2;
+        background: $bg;
+        // margin-top: 0;
+        letter-spacing: 0.0625rem;
+        border-bottom: 3px solid;
+        @include at-breakpoint($bp3){
+          border-bottom: 5px solid;
+        }
+        line-height: 1.1;
+        a {
+            @include transition(color 0.6s);
+            color: $secondary-alt;
+            &:hover, &:focus {
+                color: $secondary-alt-2;
+            }
+        }
+        .link-line span:before {
+            background: $secondary-alt-2; 
+            height: 4px;
+        }
     }
 
    .icon{
         @include rem('font-size', 3.2rem);
         text-shadow: none;
-        color: $bg;
-        // position: relative;
-        // top: 3px;
+        color: $primary;
+   }
+
+   .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -16px;
+      margin-left: -16px;
    }
 }
 
-ul.mod-list {
-    @include fira;
+
+.mod-list {
+    
+    @include fira-reg;
     @include rem('font-size', 2.2rem );
     @include rem('padding-left', 0 );
+    @include rem('margin', 2.4rem 0 );
     list-style-type:  none;
+
+    @include at-breakpoint($bp3) {
+      @include rem('margin', 2.4rem 0 );
+    }
     li{
         @include rem('line-height', 2.4rem);
     }
     a { 
-        color: $white; 
+        color: $text-dark; 
         display: block;
-        @include rem('padding', 1.4rem 0 );
+        @include rem('padding', 0 0 1.4rem 0);
         @include single-transition(color, 300ms);
         &:hover{
             color: $text-light; 
         }
     }
+
+    .csstransforms & {
+        @include translate(0, -120%);
+        @include transition(transform 1.4s $anim-slidedown, opacity 1.4s ease-in);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .timePosted {
+        @include rem('font-size', 1.4rem );
+        @include rem('margin', 0 0 1rem 0 );
+        display: block;
+        clear: both;
+        color: $text-light;
+        line-height: 1.7;
+
+    }
 }
 
 //Extends mod list
-ul.tweets{
+.tweets{
+
+   @include rem('min-height', 30rem); 
 
    li{
       @include cfix;
-      @include rem('margin-bottom', 3rem)
+      @include rem('margin-bottom', 1.4rem)
    }
    p{
         @include rem('font-size', 2.2rem );
-        @include fira;
+        @include fira-reg;
         margin-bottom: 0;
         padding-right: 0;
-        color: white;      
+        color: $text-dark;      
         line-height: 1.2;
+
+        img {
+          @include rem('width', 1.9rem );
+          position: relative;
+          top: -3px;
+        }
    }
    a{
         display: inline;
@@ -142,44 +229,54 @@ ul.tweets{
    span {
         word-wrap:break-word;
    }
-   .timePosted{
-        @include rem('font-size', 1.4rem );
-        @include rem('margin', 0 0 1rem 0 );
 
-        // @include border-radius(3px);
-        // @include box-shadow($secondary 2px 2px);
-        display: inline;
-        // float: right;
-        clear: both;
-        color: $text-light;
-        // background: $text-light;
-
+   &.mod-list {
+      .csstransforms & {
+        @include transition(transform 1.4s 0.8s $anim-slidedown, opacity 1.4s 0.8s ease-in);
+      }
    }
+}
+
+.status {
+    &.mod-list {
+      .csstransforms & {
+        @include transition(transform 1.4s 1.4s $anim-slidedown, opacity 1.4s 1.4s ease-in);
+      }
+   }
+
+}
+
+.status-tag {
+    @include rem('margin-bottom', 1rem)
 }
 
 // ---------------------------------------------------------------------------
 // Area on homepage lists a set of skills and tools used. Bubble/circle inplemenetation
 
 .home-skills{
-    background: $secondary;
     position: relative;
-    @include rem('padding', 4rem);
+     //@include rem('padding-top', 6rem);
+     @include rem('padding-bottom', 8rem);
     // @include bleed(3);
+    p {
+        color: $text-dark;
+         @include rem('padding-top', 2rem);
+    }
 
-    h2{ 
-        @include bebus-book;
-        @include rem('font-size', 7.8rem);
-        margin-top: 0;
-        color: white;
-        .icon{
-            @include rem('font-size', 3.8rem);
+    .title {
+      @include bebus-reg;
+      color: $secondary-alt;
+      line-height: 1.1;
+      border-bottom: 3px solid;
+        @include at-breakpoint($bp3){
+          border-bottom: 5px solid;
         }
     }
 }
 
 ul.bubble-list {
    @include cfix;
-   @include rem('margin', 6rem 0 0 0);
+   @include rem('margin', 6rem 0 0 );
    list-style: none;
    padding: 0;
    display: block;
@@ -207,7 +304,7 @@ ul.bubble-list {
         width: 100%;
         height:0;
         padding-bottom: 100%;
-        background: $bg; 
+        background: $secondary-alt-2; 
         display: block;
         @include border-radius(50%);
     }
@@ -221,7 +318,7 @@ ul.bubble-list {
         line-height: 1em;
         margin-top: -0.5em;
         text-align: center;
-        color: #333;
+        color: $bg;
 
         @include at-breakpoint($bp2){
         @include rem('font-size', 4.8rem);
@@ -249,9 +346,10 @@ ul.bubble-list {
    BLOG
    ========================================================================== */
  
-.post-page {
-   
+.blog-page {
+  @include rem('padding-top', 6rem);
 }
+
 .posts {
     list-style-type: none;
     padding-left: 0;
@@ -268,8 +366,8 @@ ul.bubble-list {
         color: $secondary-alt;
     }
     .post-title {
-        @include fira-reg;
-        @include rem('font-size', 4.2rem );
+        @include bebus-reg;
+        @include rem('font-size', 6.4rem );
         @include rem('padding-left', 2.5rem);
         line-height: 1.2;
         margin-bottom: 0;
@@ -285,10 +383,11 @@ ul.bubble-list {
         }
 
     }
-    hr {
-        @include rem('margin-top', 1.5rem);
-        border-color: $text-light;
-    }
+}
+
+hr {
+    @include rem('margin-top', 1.5rem);
+    border-color: $text-light;
 }
 
 .post-item-excerpt{
@@ -321,8 +420,7 @@ ul.bubble-list {
     .icon {
         margin-right: 5px;
         @include rem('font-size', 1.5rem );
-
-        //color: 
+        color: $secondary-alt;
     }
 }
 
@@ -404,7 +502,7 @@ span.post-meta-tag {
             display: inline;
             position: relative;
             @include rem('margin-left', 1.5rem);
-            top: 3px;
+            top: 2px;
          }
 
          &.page-number {
@@ -436,10 +534,64 @@ span.post-meta-tag {
    POST PAGE
    ========================================================================== */
 
-.post-content {
-   @include rem('margin-top', 4rem );
+.post-wrap {
+    @include rem('margin-top', 5rem );
 }
 
+.post-single {}
+
+.post-header {
+  @include rem('padding', 20rem 0 );
+  position: relative;
+  background: $secondary-alt;
+  background-size: cover;
+    &:after {
+      @include background-image(linear-gradient(rgba(0,0,0,0) 20%, rgba(#952F11,0.4)));
+      position: absolute;
+      content: "";
+      width: 100%;
+      top:0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      //background: $primary;
+      display: block;
+      z-index: 2;
+
+    } 
+
+  .post-title {
+    @include rem('font-size', 8.4rem);
+    @include bebus-book;
+    //position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 0;
+    text-shadow: 3px 4px 13px #000;
+    position:relative;
+    z-index: 5;
+     
+  }
+
+}
+
+.post-single {
+  .post-meta {
+    @include rem('font-size', 2.2rem);
+    @include rem('padding-top', 3rem);
+    padding-left: 0;
+    border: none;
+
+    .icon {
+       @include rem('font-size', 2.2rem);
+    }
+    .icon-tag, .icon-clock {
+      position: relative;
+      top: 2px;
+    }
+  }
+}
 
 .highlight {
    @include rem('margin-bottom', 3rem );
@@ -452,25 +604,41 @@ span.post-meta-tag {
 ul, ol {
    @include fira-reg;
    @include rem('font-size', 2.2rem );
-   color: $primary;
-
+   color: $secondary-alt-2;  
+   ///max-width: 800px;
 }
 
 code{
     @include fira-mono;
     @include border-radius(0.5rem);
     @include rem('font-size', 2rem );
-    padding: 0.2em;
+    padding: 1px 5px;
+    line-height: 1;
+    // padding-left: 0.2em;
+    // padding-right: 0.2em;
     background: $secondary-alt-2;
     color: white;
+}
+
+.highlight {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  code {
+    @include rem('font-size', 1.6rem );
+    line-height: 1.5;
+  }
 }
 
 blockquote {
     background: $secondary-alt-2;
     border-left: 10px solid $primary;;
-    margin: 1.5em 10px;
+    margin: 2.5em 10px;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
 }
 blockquote:before {
     color: #ccc;
@@ -486,24 +654,126 @@ blockquote p {
     color: white;
 }
 
-.post-content a {
+.post-content {
+
+  ul {
+    margin-top: 0;
+    li {
+     margin-bottom: 0;
+      line-height: 1.5;
+    }
+  }
+
+  a {
     color: $primary;
     line-height: 1;
     position: relative;
-
-    &:after {
-        position: absolute;
-        content: "";
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        background: $primary;
-        display: block;
-        @include single-transition(width 2s);
-    }
+    //border-bottom: 2px solid transparent;
+    @include transition(border 0.2s);
     &:hover {
-        &:after {
-            width: 100%;
-        }
+        //border-bottom-color: $primary;
+        text-decoration: underline;
     }
+  }
+
+  p {
+    @include rem('margin-bottom', 4rem);
+
+    + ul, + ol {
+       @include rem('margin-top', -2.5rem );
+    }
+  }
+
+  em {
+    @include fira-italic;
+  }
+
+  img {
+    @include rem('margin-top', 5rem);
+    @include rem('margin-bottom', 5rem);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 900px; 
+    width: 100%;
+  }
+
 }
+
+.code-single {
+  display: block;
+  text-align: center;
+  @include rem('margin', 3rem 0);
+
+}
+
+.button {
+  @include fira;
+  @include rem('font-size', 2rem);
+  @include transition(background 0.6s);
+  line-height: 1;
+  max-width: 60rem;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  vertical-align: top;
+  background: $secondary-alt;
+  color: $bg;
+
+
+  span {
+    @include fira-reg;
+  }
+
+  &.newer {
+    @include rem('padding', 1.7rem 2.5rem 1.3rem 3.5rem);
+  }
+
+  &.older {
+    @include rem('padding', 1.7rem 3.5rem 1.3rem 2.5rem);
+  }
+  .icon{
+    @include rem('font-size', 3rem);
+    @include rem('margin-top', -1.5rem);
+    margin-right: 0;
+    position: absolute;
+    top: 50%;
+    // color: $secondary-alt-2;
+  }
+  .icon-angle-right {
+    @include rem('right', 1.5rem);
+  }
+  .icon-angle-left {
+    @include rem('left', 1.5rem);
+  }
+
+  &:hover {
+    background: $secondary-alt-2;
+  }
+
+  @include at-breakpoint($bp5) {
+    width: 49%;
+    max-width: none;
+    &.older {
+      float: right;
+    }
+
+  }
+}
+
+#disqus_thread {
+  @include rem('margin-bottom', 5rem );
+
+  p {
+    color: $primary;
+  }
+  
+
+}
+
+.active .publisher-nav-color::after {
+    background: $primary;
+  }
+

@@ -9,13 +9,13 @@ module.exports = function(grunt) {
 				"devFile" : "bower_components/modernizr/modernizr.js",
 	      		"outputFile" : "js/thirdparty/modernizr.custom.js",
 
-	      		extra: {
-			        shiv: false,
-			        printshiv: true,
-			        load: true,
-			        mq: true,
-			        cssclasses: true
-			    },
+	      // 		extra: {
+			    //     shiv: false,
+			    //     printshiv: true,
+			    //     load: true,
+			    //     mq: true,
+			    //     cssclasses: true
+			    // },
 			    "uglify" : false,
 		        // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
 		        // You can override this by defining a "files" array below.
@@ -56,12 +56,20 @@ module.exports = function(grunt) {
 		    	files: [
 		          { expand: true, cwd: 'js/', src: '**', dest: '_site/js' }
 		        ]
-		    }
-	     //  	img: {
-	     //    	files: [
-	     //      	{ expand: true, cwd: 'img/', src: '*', dest: '_site/img', filter: 'isFile' }
-	     //    	]
-	     //  	},
+
+		    },
+		    jsplugins: {
+		    	files: [
+		    	  { expand: true, cwd: 'bower_components/jquery/dist/', src:'jquery.min.js', dest: 'js/thirdparty'},
+		    	  { expand: true, cwd: 'bower_components/scrollReveal.js/', src:'scrollReveal.js', dest: 'js/thirdparty'}
+		        ]
+
+		    },
+	      	img: {
+	        	files: [
+	          	{ expand: true, cwd: 'images/', src: '*', dest: '_site/images', filter: 'isFile' }
+	        	]
+	      	}
 	     //  	fonts: {
 	     //    	files: [
 	     //      	{ expand: true, cwd: 'fonts/', src: '*', dest: '_site/fonts', filter: 'isFile' }
@@ -94,7 +102,22 @@ module.exports = function(grunt) {
 				options: {
 					livereload: true
 				}
+			},
+			images: {
+				files: ['images/*.png'],
+				tasks: ['copy:img'],
+				options: {
+					livereload: true
+				}
 			}
+		},
+
+		favicons: {
+		    options: {},
+		    icons: {
+		      src: 'images/favicon.png',
+		      dest: 'images/touch-icons'
+		    }
 		}
 	});
 
@@ -105,10 +128,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-exec');
+	grunt.loadNpmTasks('grunt-favicons');
 
-	grunt.registerTask('default', ['connect', 'compass','modernizr', 'exec:build', 'watch']);
+	grunt.registerTask('default', ['connect', 'compass','modernizr', 'exec:build', 'copy:jsplugins', 'watch']);
 
 	grunt.registerTask('mod', ['modernizr']);
+
+	grunt.registerTask('icons', ['favicons']);
 	
 
 };

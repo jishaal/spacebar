@@ -1,62 +1,74 @@
 ---
 layout: default
+active: home
+title: Jishaal Kalyan - Web Developer
+description: Spacebar - Home of web developer Jishaal Kalyan
 ---
 
-<div class="container">
-  <!-- introduction -->
+<!-- introduction -->
   <section class="home-intro">
-    <h1>
-        Hi, I'm <span>Jishaal</span> <br> 
-        A <span>ux/web developer</span> creating <br>
-        front end <span>magic</span>
+  <div class="container">
+    <h1 class="main-title">
+        "Hello. I'm <span>Jishaal,</span> <br> 
+        A <span class="floating">web developer</span> creating <br>
+        frontend <span>experiences</span>"
     </h1>
-    <img src="images/face.png" alt="Jishaal's face" class="face">
-    <p>I code, design and create. With a honours qualification in computer science focusing on internet applications and interaction design, I live and breathe for the web. Feel free to get in-touch with me today.</p>
+    <p>I design, code and create. With an honours qualification in computer science focusing on development and interaction design, I live and breathe for the web.</p>
+
+    </div>
 </section>
+
+<div class="container">
+  
 
 <!-- homepage widgets -->
 <section class="widget-area">
   <div class="box-widget">
-      <h3 class="title"><i class="icon icon-quill"></i> Latest Posts</h3>
+      <h3 class="title"><a href="/blog" class=""><span>Posts</span></a></h3>
       <ul class="mod-list">
           {% for post in site.posts limit: 5 %}
-          <li><a href="{{ post.url }}">{{ post.title }}...</a></li>
+            <li>
+            <a href="{{ post.url }}">{{ post.title }}
+              <span class="timePosted">{{ post.date | date_to_long_string }}</span>
+            </a>
+
+            </li>
           {% endfor %}
       </ul>
+      <img src="/images/loading-bars.svg" class="loading" />
   </div>
 
   <div class="box-widget">
-    <h3 class="title"><i class="icon icon-twitter2"></i> Tweets </h3>
+    <h3 class="title"><a href="http://twitter.com/jishaal" class=""><span>Tweets</span></a></h3>
     <ul class="mod-list tweets">
     </ul>
-</div>
+    <img src="/images/loading-bars.svg" class="loading" />
+  </div>
 
-      <!-- <div class="box-widget">
-          <h3 class="title">Social</h3>
-          <ul class="mod-list">   
-          </ul>
-      </div> -->
+  <div class="box-widget">
+    <h3 class="title">LAST.FM</h3>
+    <ul class="mod-list status">
+    <!--   <li class="status-tag status-tag-codeivate"><a href="http://www.codeivate.com/users/jishaal"></a></li> -->
+      <li class="status-tag status-tag-lastfm"><a href="http://www.last.fm/user/j-dawg-bo"></a></li>
+    </ul>
+    <img src="/images/loading-bars.svg" class="loading" />
+  </div>
   </section>
 </div>
 
-<!-- Arbitrary experience values -->
-
 <section class="home-skills">
     <div class="container">
-      <h2><i class="icon icon-wrench"></i>Toolset</h2>
+      <h2 class="title">Toolset</h2>
 
-      <p class='p-alt'>I currently work as a front end developer for a small digital web agency in Auckland, NZ. With a skill-set that is continuously expanding, the following tools are what I currently use on a daily basis.</p>
+      <p class='p-alt'>With a skill-set that is continuously expanding, the following languages &amp; tools are what I use on a daily basis.</p>
 
       <ul class="bubble-list">
-          <li><span class="text">HTML5</span><div class="circle"></div></li>
-          <li><span class="text">CSS3</span><div class="circle"></div></li>
-          <li><span class="text">SASS</span><div class="circle"></div></li>
-          <li><span class="text double">JavaScript/</br>jQuery</span><div class="circle"></div></li>
-          <li><span class="text">PHP</span><div class="circle"></div></li>
-          <li><span class="text">SilverStripe</span><div class="circle"></div></li>
-          <li><span class="text">Grunt/Bower</span><div class="circle"></div></li>
-          <li><span class="text">GIT</span><div class="circle"></div></li>
-
+          <li data-scroll-reveal="enter bottom ease-in-out 50px after 0.2s" ><span class="text">HTML5</span><div class="circle"></div></li>
+          <li data-scroll-reveal="enter bottom ease-in-out 50px after 0.3s" ><span class="text">CSS3</span><div class="circle"></div></li>
+          <li data-scroll-reveal="enter bottom ease-in-out 50px after 0.4s"><span class="text">SASS</span><div class="circle"></div></li>
+          <li data-scroll-reveal="enter bottom ease-in-out 50px after 0.5s"><span class="text double">JavaScript/</br>ExtJS</span><div class="circle"></div></li>
+          <li data-scroll-reveal="enter bottom ease-in-out 50px after 0.6s"><span class="text">Grunt/Bower</span><div class="circle"></div></li>
+          <li data-scroll-reveal="enter bottom ease-in-out 50px after 0.7s"><span class="text">Git/GitHub</span><div class="circle"></div></li>
       </ul> 
   </div> 
 </section>

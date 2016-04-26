@@ -1,13 +1,11 @@
 {
   "name": "Spacebar",
   "dependencies": {
-    "jquery-legacy": "jquery#1.10",
-    "jquery-modern": "jquery#2",
-    "susy": "latest",
+    "jquery": "2.1.0",
+    "susy": "~1.0.9",
     "normalize.scss": "latest",
     "modernizr": "latest",
-    "susy": "latest",
-    "syntax.css": "latest"
+    "scrollReveal.js": "~0.1.2"
   },
   "ignore": [
     "**/.*",

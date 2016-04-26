@@ -3,27 +3,49 @@
 <!-- end page-wrap -->
 
     <footer class="footer">
-        <div class="container">
-            test
-        </div>
+
+        <div class="footer-content">  
+             <div class="container">   
+
+                <div class="about-block">
+                    <h2>About</h2>
+                    <p>I currently work as a frontend developer for <a href="http://xero.com" class="link-line"><span>Xero</span></a>, makers of beautiful accounting software in Auckland, New Zealand. Spacebar is my personal outlet into the world. </p>
+                </div>
+
+                 <div class="about-block">
+                    <h2>Contact</h2>
+                    <p>Feel free to connect with me via one of the following social networks.</p>
+                </div>
+
+                <div class="social-block">
+                    <ul class="social">
+                        <li><a class="icon-twitter" href="http://twitter.com/jishaal"></a></li>
+                        <li><a class="icon-facebook" href="http://facebook.com/jishaal"></a></li>
+                        <li><a class="icon-linkedin" href="http://nz.linkedin.com/pub/jishaal-kalyan/38/925/889"></a></li>
+                        <li><a class="icon-lastfm" href="http://www.last.fm/user/j-dawg-bo"></a></li>
+                    </ul> 
+                </div>
+            </div>  
+        </div>  
         
     </footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-    <script type="text/javascript" src="/js/twitterFetcher_v10_min.js"></script>
-    <script src="/js/plugins.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/thirdparty/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/js/thirdparty/twitter-fetcher.min.js"></script>
+    <script type="text/javascript" src="/js/thirdparty/scrollReveal.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-42097851-2', 'spacebar.co.nz');
+        ga('send', 'pageview');
     </script>
+    
     </body>
 
 </html>

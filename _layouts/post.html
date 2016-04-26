@@ -1,24 +1,51 @@
+---
+active: blog
+---
+
+
 {% include header.html %}
 
-<div class="container">
-	<div class="post-page">
+<header class="post-header" style="background-image:url({{ page.cover }})">
+	<h1 class="post-title container"> {{ page.title }}</h1>
+</header>
+<div class="container standard-page post-single">
+  	{% include post-meta.html caller=page %}
+  	<hr>
+	<div class="post-wrap">
 
 		<article class="post-item">
 
-		    <h1 class="post-title"> {{ page.title }}</h1>
-
-		    {% include post-meta.html caller=page %}
-
-
 		    <section class="post-content">{{ content }}</section>
-
 		    
-
-
 		</article>
+
+		 {% if page.next %} 
+		<a href="{{page.next.url}}" class="button newer"><i class="icon icon-angle-left"></i> <span>Newer: </span>{{page.next.title}}</a>
+		{% endif %}
+		 {% if page.previous %} 
+		<a href="{{page.previous.url}}" class="button older"><span>Older: </span>{{page.previous.title}} <i class="icon icon-angle-right"></i></a>
+		{% endif %}
 
 	</div>
 
 </div>
+
+ <div id="disqus_thread" class="container"><p></p></div>
+
+ 	
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'spacebarnz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
 {% include footer.html %}

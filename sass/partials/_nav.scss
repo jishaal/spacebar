@@ -96,12 +96,21 @@ nav {
 			@include single-transition(color, 500ms);
 			@include single-transition(border, 0.3s);		
 		}
+
 	}
 
 	// ---------------------------------------------------------------------------
 	// // Mobile specific navigation
 
 	@include at-breakpoint($bp2-max) {
+
+		// position: fixed;
+		// top: 0;
+		// right: 0;
+		// left: 0;
+		// bottom: 0;
+		// z-index: 99;
+
 
 		.container {
 			padding: 0;
@@ -116,11 +125,18 @@ nav {
 
 		// Dots become white and moves the menu into view
 		.open {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+
+
 			.menu-icon {
 				em {background: white;}
 			}
 			+.nav-main {
 				opacity: 0.99;
+				position: fixed;		
 				@include translate3d(0, 0);
 			}
 		}
@@ -128,7 +144,7 @@ nav {
 		.nav-main {
 			$anim1: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 			$anim2: cubic-bezier(.694,.0482,.335,1);
-			@include translate(0, -100%);
+			@include translate(0, -120%);
 			@include transition(all 400ms $anim2);
 			@include transition-timing-function($anim2);
 			position: absolute;			
@@ -136,7 +152,8 @@ nav {
 			top: 0;
 			right: 0;
 			left: 0;	
-			bottom: 0;		
+			//bottom: 0;		
+			height: 100%;
 			background: $secondary-alt;
 			// border-top: 1px solid $white;
 			z-index: 99;
@@ -152,10 +169,15 @@ nav {
 			li{
 				@include rem('padding-left', 1rem);
 				a {
-					// color: $secondary-alt-2
-				}
-				&:hover a {
 					color: $secondary-alt-2;
+					@include transition(color 0.3s);
+
+					&:hover, &:active  {
+						color: $white;
+					}
+				}				
+				&.active a {
+					color: $white;
 				}
 			}
 		}
@@ -165,6 +187,7 @@ nav {
 	// Tablet and up, show inline list
 		
 	@include at-breakpoint($bp3) {
+
 
 		.container {
 			padding-bottom: 0;
@@ -197,16 +220,12 @@ nav {
 		    	height: 60px;  
 			}
 
-			@include at-breakpoint($bp4) {
-				@include rem('margin-top', 1.6rem);
-			}
-
 			.blink {
 				position: absolute;
-				right: -20px;
+				right: 0px;
 				bottom: 6px;
-				height: 3px;
-				width: 32px;
+				height: 1px;
+				width: 30px;
 				background: $white;
 				visibility: hidden;
 			}	
@@ -242,6 +261,9 @@ nav {
 				&:first-child a{
 					padding-left: 0;
 				}
+				&.active a {
+					@include rem('height',9rem);
+				}
 			}
 
 			li:first-child a{
@@ -250,13 +272,13 @@ nav {
 
 			a {
 				@include rem('padding',0 3rem);
-				@include rem('height',9.5rem);
-				@include at-breakpoint($bp4) {
-					@include rem('height',9.4rem);
-				}
+				@include rem('height',9.6rem);
+				// @include at-breakpoint($bp2) {
+				// 	@include rem('height',9.4rem);
+				// }
 				@include rem('font-size', 2.8rem);
-				@include single-transition(height, .2s);
-				border-bottom: 4px solid $white;
+				@include single-transition(all, 0.2s ease-in);
+				border-bottom: 5px solid $bg;
 
 				.no-touch & {
 					&:hover, &:active{
@@ -267,11 +289,17 @@ nav {
 					&:hover{
 						color: $text-light;
 					}						
-				}	
+				}
 				span{
 					@include rem('line-height',9.4rem);
 				}
 			}
+		}
+	}
+
+	@include at-breakpoint($bp5) {
+		a.brand {
+			@include rem('margin-top', 1.6rem);
 		}
 	}
 }
@@ -325,3 +353,7 @@ nav {
 		}
 	}
 }
+
+body.push {
+	padding-top: 72px;
+} 

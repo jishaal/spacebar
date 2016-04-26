@@ -1,15 +1,16 @@
 name: "Spacebar"
 description: "a blog"
 
-url: "http://localhost:4000"
+# url: "http://localhost:4000"
+url: "spacebar.co.nz"
 
 paginate: 5
 paginate_path: "/blog/page:num/"
-permalink: /blog/:categories/:year/:month/:day/:title.html
+permalink: /blog/:title/
 
 
 markdown: rdiscount
 
-pygments: true
+highlighter: pygments
 
 exclude: [sass, src, test, bower_components, node_modules, lib, 'bower.json', 'Gemfile', 'Gemfile.lock', 'Gruntfile.js', 'package.json', 'requirements.txt', 'README.md', 'deploy.json', 'config.rb', '*.sublime*']
